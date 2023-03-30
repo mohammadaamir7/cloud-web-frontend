@@ -1,0 +1,706 @@
+@font-face {
+  font-family: K2D;
+  src: url("../assets/fonts/K2D/K2D-Medium.ttf");
+}
+@font-face {
+  font-family: Play;
+  src: url("../assets/fonts/Play/Play-Bold.ttf");
+}
+@font-face {
+  font-family: Poppins;
+  src: url("../assets/fonts/Poppins/Poppins-Medium.ttf");
+}
+@font-face {
+  font-family: Poppins-Normal;
+  src: url("../assets/fonts/Poppins/Poppins-Light.ttf");
+}
+@font-face {
+  font-family: Questrial;
+  src: url("../assets/fonts/Questrial/Questrial-Regular.ttf");
+}
+@font-face {
+  font-family: Playfair;
+  src: url("../assets/fonts/Playfair/static/PlayfairDisplay-Bold.ttf");
+}
+@font-face {
+  font-family: Playfair-Normal;
+  src: url("../assets/fonts/Playfair/static/PlayfairDisplay-Regular.ttf");
+}
+
+.navbar-background {
+  background-color: #101f34;
+}
+
+.navbar-heading {
+  font-size: 20px;
+  color: #ffffff;
+  font-family: K2D;
+  margin-left: 2%;
+}
+
+.navbar-logo {
+  width: 124px;
+  height: 134px;
+  padding-top: 2vh;
+  cursor: pointer;
+}
+.modal-logo {
+  width: 12vw;
+  height: 20vh;
+  margin-bottom: -12vh;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navbar-heading:hover {
+  color: #ffffff;
+}
+
+.footer-background {
+  background-color: #161616;
+  height: auto;
+}
+
+.footer-logo {
+  height: 222.5px;
+  width: 235px;
+}
+
+.footer-heading {
+  font-size: 25px;
+  color: #ffffff;
+  font-family: K2D;
+  line-height: 54px;
+}
+.home-hero {
+  background-image: url("https://120mybucket.s3.amazonaws.com/images/rectangle-4%402x.png");
+  height: 400px;
+  width: 100%;
+}
+.about-us-hero {
+  height: 620px;
+  width: 100%;
+}
+.home-heading {
+  color: #ffffff;
+  font-family: Play;
+}
+.home-para {
+  color: #ffffff;
+  font-family: Poppins;
+  font-size: 15px;
+}
+.home-para-two {
+  color: #ffffff;
+  font-family: Poppins;
+  font-size: 20px;
+  margin-top: 3%;
+}
+.get-started {
+  background-color: #ffffff !important;
+  color: #0e3060;
+  border: 1px solid #ffffff;
+  font-family: Poppins;
+  width: 180px;
+}
+.get-started:hover {
+  color: #101f34;
+}
+.meet-experts {
+  background-color: #ffffff !important;
+  color: #000000;
+  border: 1px solid #000000;
+  font-family: Poppins;
+  width: 255px;
+  height: 65px;
+}
+.meet-experts:hover {
+  color: #000000;
+}
+.flattentech-image {
+  height: 380px;
+  width: 380px;
+}
+.llc-head {
+  color: #000000;
+  font-family: Questrial;
+  text-align: center;
+}
+.llc-para {
+  color: #000000;
+  font-family: Poppins-Normal;
+  text-align: center;
+  font-size: 20px;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+.services-head {
+  font-family: Playfair;
+  font-size: 47px;
+}
+.architecture-head {
+  font-family: Poppins;
+  font-size: 35px;
+  color: #555454;
+}
+.architecture-para {
+  font-family: Poppins-Normal;
+  font-size: 15px;
+}
+.architecture-image {
+  height: 286px;
+  width: 344px;
+  margin-left: 3%;
+}
+.expertise-head {
+  font-family: Playfair;
+  text-align: center;
+  font-size: 47px;
+}
+.expertise-para {
+  font-family: Questrial;
+  font-weight: 400;
+  font-size: 28px;
+  margin-right: 150px;
+}
+.expertise-svg {
+  width: 600px;
+  height: 443px;
+  margin-left: -8%;
+}
+.security-para {
+  font-family: Questrial;
+  font-weight: 400;
+  font-size: 28px;
+  margin-right: 130px;
+  margin-left: 5%;
+}
+.security-svg {
+  width: 600px;
+  height: 443px;
+  margin-bottom: 15%;
+}
+.contact-us-div {
+  background-color: #101f34;
+}
+.contact-logo {
+  margin-top: 20%;
+  margin-bottom: 5%;
+  margin-left: 5%;
+  width: 33vw;
+  height: 60vh;
+}
+.contact-field-two {
+  margin-top: 5% !important;
+}
+.contact-field {
+  width: 448px !important;
+  margin-top: 30% !important;
+  margin-left: 7px !important;
+}
+.modal-field-two {
+  margin-top: 5% !important;
+}
+.modal-field {
+  width: 448px !important;
+  margin-top: 30% !important;
+  margin-left: 7px !important;
+}
+.contact-para {
+  color: #ffffff;
+  font-family: Poppins-Normal;
+  font-size: 12px;
+  margin-left: 2%;
+  margin-top: 3%;
+  margin-right: 15%;
+}
+.contact-para-two {
+  color: #ffffff;
+  font-family: Poppins-Normal;
+  font-size: 11px;
+  margin-top: 1%;
+  margin-right: 15%;
+}
+.contact-us-button {
+  margin-bottom: 20%;
+  font-family: Poppins;
+  background-color: #ffd700;
+  color: #000000;
+  width: 189px;
+  height: 49px;
+  border: 1px solid #ffd700;
+}
+.contact-us-button:hover {
+  background-color: #ffd700;
+  color: #000000;
+}
+.about-us-head {
+  margin-top: 15%;
+  margin-bottom: 10%;
+  font-family: PlayFair-Normal;
+  font-size: 52px;
+}
+.experienced-svg {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+.our-team-head {
+  font-family: PlayFair;
+  text-align: center;
+  margin-bottom: 5%;
+}
+.our-team-image {
+  width: 540px;
+  height: 361px;
+  margin-bottom: 10%;
+}
+.our-team-para {
+  font-family: Poppins-Normal;
+  font-size: 23px;
+  margin-right: 5%;
+  line-height: 40px;
+}
+.who-we-are-svg {
+  margin-top: 5%;
+  height: 80vh;
+  width: 100%;
+}
+.register-background {
+  background-color: #101f34;
+  height: 100vh;
+}
+.register-head-style {
+  color: #ffffff;
+  font-family: Play;
+  margin-top: 20vh;
+}
+.register-logo {
+  height: 52vh;
+  width: 27vw;
+  margin-top: 20vh;
+}
+.modal-head {
+  font-family: Poppins;
+}
+.navbar-toggler-icon span {
+  color: white !important;
+}
+@media screen and (max-width: 430px) {
+  .footer-heading {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .footer-logo {
+    margin-left: 22%;
+  }
+
+  .footer-head-left-margin {
+    margin-left: 15%;
+  }
+
+  .footer-head-left-margin-two {
+    margin-left: 20%;
+  }
+
+  .footer-heading-base {
+    margin-left: 27%;
+    margin-top: 8%;
+  }
+  .home-hero {
+    height: auto;
+  }
+  .home-heading {
+    font-size: 25px;
+  }
+  .home-para {
+    margin-top: 5%;
+    font-size: 13px;
+  }
+  .home-para-two {
+    font-size: 18px;
+  }
+  .flattentech-image {
+    margin-left: 3%;
+  }
+  .services-head {
+    text-align: center;
+    font-size: 10vw;
+  }
+  .llc-para {
+    font-size: 17px;
+  }
+  .architecture-head {
+    font-size: 25px;
+  }
+  .meet-experts {
+    margin-left: 20%;
+  }
+  .architecture-image {
+    margin-left: 10%;
+    width: 78vw;
+  }
+  .architecture-image-margin {
+    margin-top: 0 !important;
+  }
+  .expertise-para {
+    font-size: 22px;
+    margin-right: 0;
+    margin-left: 3%;
+  }
+  .expertise-svg {
+    width: 380px;
+    height: 400px;
+    margin-left: 0;
+  }
+  .security-para {
+    font-size: 22px;
+    margin-right: 0;
+    margin-left: 3%;
+    margin-top: 8%;
+  }
+  .security-svg {
+    width: 380px;
+    height: 400px;
+    margin-left: 0;
+  }
+  .contact-para {
+    margin-left: 10%;
+    margin-right: 0;
+    margin-top: 5%;
+  }
+  .contact-field-two {
+    margin-top: 5% !important;
+    width: 88vw !important;
+    margin-left: 5% !important;
+  }
+  .contact-field {
+    margin-top: 2% !important;
+    width: 88vw !important;
+    margin-left: 5% !important;
+  }
+  .modal-field-two {
+    margin-top: 5% !important;
+    width: 80vw !important;
+    margin-left: 5% !important;
+  }
+  .modal-field {
+    margin-top: 2% !important;
+    width: 80vw !important;
+    margin-left: 5% !important;
+  }
+  .contact-checkbox {
+    margin-left: 5% !important;
+  }
+  .contact-us-button {
+    margin-left: 26%;
+  }
+  .contact-logo {
+    width: 55vw;
+    height: 30vh;
+    margin-bottom: 0;
+    margin-left: 22%;
+  }
+  .about-us-hero {
+    height: 45vh;
+    width: 100%;
+  }
+  .about-us-head {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 0;
+  }
+  .experienced-svg {
+    margin-top: 0;
+    width: 100vw;
+  }
+  .our-team-image {
+    width: 94.5vw;
+    height: 40vh;
+  }
+  .our-team-para {
+    font-size: 18px;
+    line-height: 30px;
+  }
+  .security-svg {
+    margin-bottom: 0;
+  }
+  .who-we-are-svg {
+    margin-top: -40%;
+    margin-bottom: -40%;
+  }
+  .register-logo {
+    height: 32vh;
+    width: 52vw;
+    margin-top: 0;
+    margin-left: 20vw;
+  }
+  .register-head-style {
+    margin-top: 5vh;
+  }
+  .modal-logo {
+    width: 40vw;
+    height: 20vh;
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 430.5px) and (max-width: 926px) {
+  .navbar-heading {
+    font-size: 15px;
+  }
+  .footer-heading {
+    font-size: 22px;
+    line-height: 40px;
+  }
+  .footer-heading-base {
+    font-size: 22px;
+    margin-left: 100% !important;
+    margin-top: 8%;
+    display: block;
+    width: 300px;
+  }
+  .footer-field {
+    width: 500px !important;
+    margin-left: 40% !important;
+  }
+  .footer-head-left-margin-two {
+    margin-left: 23%;
+  }
+  .footer-head-left-margin {
+    margin-left: 23%;
+  }
+  .flattentech-image {
+    height: 280px;
+    width: 280px;
+  }
+  .services-head {
+    text-align: center;
+  }
+  .llc-para {
+    font-size: 17px;
+  }
+  .architecture-head {
+    font-size: 21.7px;
+  }
+  .meet-experts {
+    margin-left: 0%;
+    width: 210px;
+    height: 55px;
+    font-size: 14px;
+  }
+  .architecture-image {
+    height: 256px;
+    width: 304px;
+    margin-left: 20%;
+    width: 320px;
+  }
+  .architecture-image-margin {
+    margin-top: 0 !important;
+  }
+  .expertise-para {
+    font-size: 22px;
+    margin-right: 0;
+    margin-left: 3%;
+  }
+  .expertise-svg {
+    width: 380px;
+    height: 400px;
+    margin-left: 0;
+    margin-top: -20%;
+  }
+  .security-para {
+    font-size: 22px;
+    margin-right: 0;
+    margin-left: 3%;
+    margin-top: 8%;
+  }
+  .security-svg {
+    width: 380px;
+    height: 400px;
+    margin-left: 0;
+    margin-top: -20%;
+  }
+  .contact-logo {
+    height: 45vh;
+    width: 35vw;
+  }
+  .contact-field-two {
+    width: 45vw !important;
+  }
+  .contact-field {
+    width: 45vw !important;
+  }
+  .modal-field {
+    width: 45vw !important;
+  }
+  .modal-field-two {
+    width: 45vw !important;
+  }
+  .about-us-hero {
+    height: 75vh;
+    width: 100%;
+  }
+  .about-us-head {
+    font-size: 33px;
+    margin-top: 25%;
+  }
+  .experienced-svg {
+    margin-top: 0;
+    width: 48vw;
+  }
+  .our-team-image {
+    width: 43vw;
+    height: 30vh;
+    margin-bottom: 5%;
+  }
+  .our-team-para {
+    font-size: 18px;
+    line-height: 33px;
+  }
+  .who-we-are-svg {
+    margin-top: -15%;
+    margin-bottom: -15%;
+  }
+  .register-logo {
+    height: 32vh;
+    width: 37vw;
+    margin-top: 23vh;
+  }
+  .modal-logo {
+    width: 30vw;
+    height: 20vh;
+    margin-bottom: -10vh;
+  }
+}
+
+@media screen and (min-width: 926.5px) and (max-width: 1100px) {
+  .architecture-image {
+    height: 256px;
+    width: 304px;
+    margin-left: 20%;
+    width: 320px;
+  }
+  .architecture-image-margin {
+    margin-top: 0 !important;
+  }
+  .services-head {
+    text-align: center;
+  }
+  .llc-para {
+    font-size: 17px;
+  }
+  .architecture-head {
+    font-size: 25px;
+  }
+  .expertise-para {
+    font-size: 25px;
+    margin-right: 0;
+    margin-left: 3%;
+  }
+  .expertise-svg {
+    width: 500px;
+    height: 400px;
+    margin-left: 0;
+    margin-top: -13%;
+  }
+  .security-para {
+    font-size: 25px;
+    margin-right: 0;
+    margin-left: 3%;
+    margin-top: 8%;
+  }
+  .security-svg {
+    width: 500px;
+    height: 400px;
+    margin-left: 0;
+    margin-top: -13%;
+  }
+  .contact-logo {
+    height: 50vh;
+  }
+  .contact-field-two {
+    width: 45vw !important;
+  }
+  .contact-field {
+    width: 45vw !important;
+  }
+  .modal-field {
+    width: 40vw !important;
+  }
+  .modal-field-two {
+    width: 40vw !important;
+  }
+  .about-us-head {
+    margin-top: 25%;
+    font-size: 40px;
+  }
+  .experienced-svg {
+    width: 48vw;
+  }
+  .our-team-image {
+    width: 43vw;
+    height: 40vh;
+    margin-bottom: 5%;
+  }
+  .our-team-para {
+    font-size: 20px;
+    line-height: 35px;
+  }
+  .register-logo {
+    height: 52vh;
+    width: 37vw;
+  }
+  .modal-logo {
+    width: 30vw;
+    height: 30vh;
+    margin-bottom: -10vh;
+  }
+}
+@media screen and (min-width: 810.5px) and (max-width: 926px) {
+  .our-team-image {
+    width: 38vw;
+    height: 50vh;
+    margin-bottom: 5%;
+  }
+  .contact-logo {
+    width: 35vw;
+    height: 80vh;
+  }
+  .who-we-are-svg {
+    margin-top: 5%;
+    margin-bottom: 0;
+  }
+  .register-logo {
+    height: 58vh;
+    width: 30vw;
+    margin-top: 10vh;
+  }
+  .register-head-style {
+    font-size: 25px;
+    margin-top: 5vh;
+  }
+  .register-field {
+    height: 12vh;
+  }
+  .modal-logo {
+    width: 30vw;
+    height: 35vh;
+    margin-bottom: -10vh;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .about-us-hero {
+    height: 80vh;
+  }
+  .our-team-image {
+    width: 33vw;
+    height: 40vh;
+    margin-bottom: 5%;
+  }
+  .contact-logo {
+    width: 28vw;
+    height: 60vh;
+  }
+}
