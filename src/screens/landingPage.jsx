@@ -31,9 +31,9 @@ const validationSchema = Yup.object().shape({
   ),
   lastName: Yup.string("Enter your last name").required("Last Name Required"),
   city: Yup.string("Enter your city").required("City Required"),
-  phone: Yup.string("Enter your phone number").matches(/^\d{10}$/, 'Phone number is not valid').required(
-    "Phone Number Required"
-  ),
+  phone: Yup.string("Enter your phone number")
+    .matches(/^\d{10}$/, "Phone number is not valid")
+    .required("Phone Number Required"),
 });
 
 const LandingPage = () => {
@@ -57,16 +57,17 @@ const LandingPage = () => {
     setShowError(false);
     if (!isChecked) {
       setShowError(true);
+    } else {
+      dispatch(
+        sendEmailFunction(
+          formik.values.email,
+          formik.values.firstName,
+          formik.values.lastName,
+          formik.values.city,
+          formik.values.phone
+        )
+      );
     }
-    dispatch(
-      sendEmailFunction(
-        formik.values.email,
-        formik.values.firstName,
-        formik.values.lastName,
-        formik.values.city,
-        formik.values.phone
-      )
-    );
   };
 
   const pdfFile = () => {
@@ -105,7 +106,12 @@ const LandingPage = () => {
             <Col md={4}>
               <div style={{ height: "auto" }}>
                 {/* <Image className="flattentech-image" src={flattechnology} /> */}
-                <Image className="flattentech-image" src={'https://120mybucket.s3.amazonaws.com/images/flattechnology.png'} />
+                <Image
+                  className="flattentech-image"
+                  src={
+                    "https://120mybucket.s3.amazonaws.com/images/flattechnology.png"
+                  }
+                />
               </div>
             </Col>
           </Row>
@@ -171,23 +177,50 @@ const LandingPage = () => {
             </Col>
             <Col md={8}>
               {/* <Image src={image1} className="architecture-image mb-5 mt-5" /> */}
-              <Image src={'https://120mybucket.s3.amazonaws.com/images/rectangle-7%402x.png'} className="architecture-image mb-5 mt-5" />
+              <Image
+                src={
+                  "https://120mybucket.s3.amazonaws.com/images/rectangle-7%402x.png"
+                }
+                className="architecture-image mb-5 mt-5"
+              />
               {/* <Image
                 src={image2}
                 className="architecture-image mb-5 mt-5 architecture-image-margin"
               /> */}
               <Image
-                src={'https://120mybucket.s3.amazonaws.com/images/rectangle-8%402x.png'}
+                src={
+                  "https://120mybucket.s3.amazonaws.com/images/rectangle-8%402x.png"
+                }
                 className="architecture-image mb-5 mt-5 architecture-image-margin"
               />
               {/* <Image src={image3} className="architecture-image mb-5" /> */}
-              <Image src={'https://120mybucket.s3.amazonaws.com/images/rectangle-9%402x.png'} className="architecture-image mb-5" />
+              <Image
+                src={
+                  "https://120mybucket.s3.amazonaws.com/images/rectangle-9%402x.png"
+                }
+                className="architecture-image mb-5"
+              />
               {/* <Image src={image4} className="architecture-image mb-5" /> */}
-              <Image src={'https://120mybucket.s3.amazonaws.com/images/rectangle-10%402x.png'} className="architecture-image mb-5" />
+              <Image
+                src={
+                  "https://120mybucket.s3.amazonaws.com/images/rectangle-10%402x.png"
+                }
+                className="architecture-image mb-5"
+              />
               {/* <Image src={image5} className="architecture-image mb-5" /> */}
-              <Image src={'https://120mybucket.s3.amazonaws.com/images/rectangle-11%402x.png'} className="architecture-image mb-5" />
+              <Image
+                src={
+                  "https://120mybucket.s3.amazonaws.com/images/rectangle-11%402x.png"
+                }
+                className="architecture-image mb-5"
+              />
               {/* <Image src={image6} className="architecture-image mb-5" /> */}
-              <Image src={'https://120mybucket.s3.amazonaws.com/images/rectangle-12%402x.png'} className="architecture-image mb-5" />
+              <Image
+                src={
+                  "https://120mybucket.s3.amazonaws.com/images/rectangle-12%402x.png"
+                }
+                className="architecture-image mb-5"
+              />
             </Col>
           </Row>
         </Container>
@@ -480,7 +513,10 @@ const LandingPage = () => {
           <Row>
             <Col md={6}>
               {/* <Image className="contact-logo" src={logo_2} /> */}
-              <Image className="contact-logo" src={'https://120mybucket.s3.amazonaws.com/images/logo-2.png'} />
+              <Image
+                className="contact-logo"
+                src={"https://120mybucket.s3.amazonaws.com/images/logo-2.png"}
+              />
             </Col>
             <Col md={6}>
               <form onSubmit={formik.handleSubmit}>

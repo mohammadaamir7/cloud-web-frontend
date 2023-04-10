@@ -4,6 +4,7 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../actions/userActions";
+import TextareaAutosize from '@mui/base/TextareaAutosize';
 import Loader from "../components/loader";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -12,19 +13,19 @@ import TextField from "@mui/material/TextField";
 import "../style/index.css";
 // import logo_2 from "../assets/images/logo-2.png";
 import Navbar from "../components/navbar";
+import { addBlog } from "../actions/blogActions";
 
 const validationSchema = Yup.object().shape({
-  password: Yup.string("Enter your password")
-    .min(8, "Password should be of minimum 8 characters length")
-    .required("Password Required"),
-  firstName: Yup.string("Enter your FirstName").required("First Name Required"),
-  lastName: Yup.string("Enter your Last Name").required("last Name Required"),
-  email: Yup.string("Enter your email")
-    .email("Invalid email")
-    .required("Email Required"),
+  blogTitle: Yup.string("Enter blog title").required(
+    "Blog Heading Required"
+  ),
+  blogIntro: Yup.string("Enter Blog Intro").required("Blog Intro Required"),
+  blogDescription: Yup.string("Enter Blog Description").required(
+    "Blog Description Required"
+  ),
 });
 
-const RegisterForm = () => {
+const AddBlog = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -35,44 +36,45 @@ const RegisterForm = () => {
 
   const formik = useFormik({
     initialValues: {
-      email: userRegister?.userInfo?.email ? userRegister?.userInfo?.email : "",
-      password: "",
-      firstName: "",
-      lastName: "",
+      blogTitle: "",
+      blogIntro: "",
+      blogDescription: "",
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
-      dispatch(
-        register(
-          values.email,
-          values.password,
-          values.firstName,
-          values.lastName
-        )
+    onSubmit: async (values) => {
+      const success = await dispatch(
+        addBlog(values.blogTitle, values.blogIntro, values.blogDescription)
       );
-      navigate("/");
+      if (success) {
+        navigate("/blogs");
+      }
     },
   });
 
   useEffect(() => {
-    if (userInfo) {
-      navigate("/");
+    if (!userInfo || userInfo?.role !== "admin") {
+      navigate("/login");
     }
   }, [userInfo, navigate]);
 
   return (
-    <div className="register-background">
+    <div className="blog-background">
       <Navbar />
       {loading && <Loader />}
       <Container>
         <Row>
           <Col md={6}>
             {/* <Image className="register-logo" fluid src={logo_2} alt="logo" /> */}
-            <Image className="register-logo" fluid src={'https://120mybucket.s3.amazonaws.com/images/logo-2.png'} alt="logo" />
+            <Image
+              className="register-logo"
+              fluid
+              src={"https://120mybucket.s3.amazonaws.com/images/logo-2.png"}
+              alt="logo"
+            />
           </Col>
           <Col md={6}>
             <div className="vertical-mid">
-              <h1 className="register-head-style">Create Your Account</h1>
+              <h1 className="register-head-style">Add New Blog Post</h1>
               <form onSubmit={formik.handleSubmit}>
                 <TextField
                   sx={{
@@ -87,15 +89,15 @@ const RegisterForm = () => {
                   }}
                   style={{ margin: "10px 0" }}
                   fullWidth
-                  id="email"
-                  name="email"
-                  label="Email"
+                  id="blogTitle"
+                  name="blogTitle"
+                  label="Title"
                   className="register-field"
-                  value={formik.values.email}
+                  value={formik.values.blogTitle}
                   onChange={formik.handleChange}
-                  error={formik.touched.email && Boolean(formik.errors.email)}
-                  helperText={formik.touched.email && formik.errors.email}
-                  disabled={userRegister?.userInfo?.email}
+                  error={formik.touched.blogTitle && Boolean(formik.errors.blogTitle)}
+                  helperText={formik.touched.blogTitle && formik.errors.blogTitle}
+                  disabled={userRegister?.userInfo?.blogTitle}
                 />
 
                 <TextField
@@ -111,20 +113,21 @@ const RegisterForm = () => {
                   }}
                   style={{ margin: "10px 0" }}
                   fullWidth
-                  id="password"
-                  name="password"
-                  label="Password"
+                  id="blogIntro"
+                  name="blogIntro"
+                  label="Intro"
                   className="register-field"
-                  type="password"
-                  value={formik.values.password}
+                  value={formik.values.blogIntro}
                   onChange={formik.handleChange}
                   error={
-                    formik.touched.password && Boolean(formik.errors.password)
+                    formik.touched.blogIntro && Boolean(formik.errors.blogIntro)
                   }
-                  helperText={formik.touched.password && formik.errors.password}
+                  helperText={formik.touched.blogIntro && formik.errors.blogIntro}
                 />
 
-                <TextField
+                <TextareaAutosize
+                  maxRows={6}
+                  minRows={6}
                   sx={{
                     border: "1px solid #ffffff",
                     borderRadius: 1,
@@ -137,55 +140,28 @@ const RegisterForm = () => {
                   }}
                   style={{ margin: "10px 0" }}
                   fullWidth
-                  id="firstName"
-                  name="firstName"
-                  label="firstName"
-                  className="register-field"
+                  id="blogDescription"
+                  name="blogDescription"
+                  label="Description"
+                  placeholder="Description"
+                  className="blog-text"
                   type="text"
-                  value={formik.values.firstName}
+                  value={formik.values.blogDescription}
                   onChange={formik.handleChange}
                   error={
-                    formik.touched.firstName && Boolean(formik.errors.firstName)
+                    formik.touched.blogDescription && Boolean(formik.errors.blogDescription)
                   }
-                  helperText={
-                    formik.touched.firstName && formik.errors.firstName
-                  }
-                />
-
-                <TextField
-                  sx={{
-                    border: "1px solid #ffffff",
-                    borderRadius: 1,
-                    input: { color: "#ffffff" },
-                  }}
-                  InputLabelProps={{
-                    style: {
-                      color: "#ffffff",
-                    },
-                  }}
-                  style={{ margin: "10px 0" }}
-                  fullWidth
-                  id="lastName"
-                  name="lastName"
-                  label="lastName"
-                  className="register-field"
-                  type="text"
-                  value={formik.values.lastName}
-                  onChange={formik.handleChange}
-                  error={
-                    formik.touched.lastName && Boolean(formik.errors.lastName)
-                  }
-                  helperText={formik.touched.lastName && formik.errors.lastName}
+                  helperText={formik.touched.blogDescription && formik.errors.blogDescription}
                 />
                 <Button
                   style={{ marginTop: "20px" }}
-                  className="rounded-button"
+                  className="rounded-button mb-5"
                   size="large"
                   color="primary"
                   variant="contained"
                   type="submit"
                 >
-                  Create Account
+                  Post Blog
                 </Button>
               </form>
             </div>
@@ -196,4 +172,4 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;
+export default AddBlog;

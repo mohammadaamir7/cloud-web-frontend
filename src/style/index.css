@@ -270,6 +270,10 @@
   background-color: #101f34;
   height: 100vh;
 }
+.blog-background {
+  background-color: #101f34;
+  height: 100vh;
+}
 .register-head-style {
   color: #ffffff;
   font-family: Play;
@@ -283,8 +287,129 @@
 .modal-head {
   font-family: Poppins;
 }
+.card-head {
+  font-family: Poppins;
+  font-size: 25px;
+  padding-left: 0.7vw;
+  padding-bottom: 1.5vh;
+  padding-top: 1.5vh;
+}
+.card-para {
+  font-family: Poppins-Normal;
+  font-size: 20px;
+  line-height: 40px;
+}
+.card-style {
+  height: 60vh;
+  width: 22vw !important;
+}
 .navbar-toggler-icon span {
   color: white !important;
+}
+.blog-text {
+  width: 100%;
+  background: #101f34;
+  color: #ffffff;
+}
+.blog-text::placeholder {
+  color: #ffffff !important;
+}
+.blog-head {
+  font-family: Play;
+  text-align: center;
+}
+.blog-main-head {
+  font-family: Playfair;
+  text-align: center;
+  font-size: 47px;
+}
+.blog-para {
+  font-family: Poppins;
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 10vh;
+}
+.blog-description {
+  font-family: Poppins-Normal;
+  font-size: 20px;
+  line-height: 40px;
+  margin-bottom: 7vh;
+}
+.blog-link {
+  color: #000000;
+  text-decoration: none;
+}
+.blog-link:hover {
+  color: #000000;
+}
+.update-blog-button {
+  margin-bottom: 7%;
+  font-family: Poppins;
+  background-color: #ffd700;
+  color: #000000;
+  width: 189px;
+  height: 49px;
+  border: 1px solid #ffd700;
+}
+.update-blog-button:hover {
+  background-color: #ffd700;
+  color: #000000;
+}
+.delete-blog-button {
+  margin-bottom: 7%;
+  font-family: Poppins;
+  background-color: red;
+  color: #ffffff;
+  width: 189px;
+  height: 49px;
+  border: 1px solid red;
+  margin-left: 1vw;
+}
+.delete-blog-button:hover {
+  background-color: red;
+  color: #ffffff;
+}
+.delete-modal-para {
+  margin-top: 30% !important;
+  text-align: center;
+  font-family: Questrial;
+  font-size: 20px;
+}
+.delete-modal-yes {
+  background-color: red;
+  border: 1px solid red;
+  color: #ffffff;
+  margin-left: 2.8vw;
+}
+.delete-modal-no {
+  background-color: #4f7180;
+  border: 1px solid #4f7180;
+  color: #ffffff;
+  margin-left: 0.5vw;
+}
+.delete-modal-yes:hover {
+  background-color: red;
+  color: #ffffff;
+}
+.delete-modal-no:hover {
+  background-color: #4f7180;
+  color: #ffffff;
+}
+.no-data-heading {
+  font-family: Poppins-Normal;
+  text-align: center;
+  margin-top: 2vh;
+}
+.name-head{
+  font-size: 20px;
+  margin-bottom: 5vh;
+  text-align: center;
+  font-family: K2D;
+}
+.blog-image{
+  width: 100%;
+  height: 70vh;
+  border-radius: 2%;
 }
 @media screen and (max-width: 430px) {
   .footer-heading {
@@ -390,11 +515,22 @@
     width: 80vw !important;
     margin-left: 5% !important;
   }
+  .delete-modal-para {
+    margin-top: 2% !important;
+  }
   .contact-checkbox {
     margin-left: 5% !important;
   }
   .contact-us-button {
     margin-left: 26%;
+  }
+  .update-blog-button {
+    margin-left: 5%;
+    width: 40vw;
+  }
+  .delete-blog-button {
+    margin-left: 5%;
+    width: 40vw;
   }
   .contact-logo {
     width: 55vw;
@@ -444,11 +580,36 @@
     height: 20vh;
     margin-bottom: 0;
   }
+  .card-head {
+    font-size: 22px;
+  }
+  .card-para {
+    font-size: 18px;
+    line-height: 40px;
+  }
+  .card-style {
+    height: 63vh;
+    width: 95vw !important;
+  }
+  .delete-modal-yes {
+    margin-left: 2.5vw;
+    width: 40vw;
+  }
+  .delete-modal-no {
+    width: 40vw;
+    margin-left: 2vw;
+  }
+  .blog-background {
+    height: 100%;
+  }
+  .blog-image{
+    height: 40vh;
+  }
 }
 
 @media screen and (min-width: 430.5px) and (max-width: 926px) {
   .navbar-heading {
-    font-size: 15px;
+    font-size: 13px;
   }
   .footer-heading {
     font-size: 22px;
@@ -573,8 +734,46 @@
     height: 20vh;
     margin-bottom: -10vh;
   }
+  .card-head {
+    font-size: 17px;
+  }
+  .card-para {
+    font-size: 14px;
+    line-height: 25px;
+  }
+  .card-style {
+    height: 128vh;
+    width: 25vw !important;
+  }
+  .delete-modal-yes {
+    margin-left: 5vw;
+  }
+  .blog-background {
+    height: 100%;
+  }
+  .name-head {
+    font-size: 17px;
+  }
 }
-
+@media screen and (width: 810px) {
+  .card-head {
+    font-size: 15px;
+  }
+  .card-para {
+    font-size: 14px;
+    line-height: 25px;
+  }
+  .card-style {
+    height: 43vh;
+    width: 29vw !important;
+  }
+  .blog-background {
+    height: 100vh;
+  }
+  .blog-image{
+    height: 40vh;
+  }
+}
 @media screen and (min-width: 926.5px) and (max-width: 1100px) {
   .architecture-image {
     height: 256px;
@@ -657,6 +856,20 @@
     height: 30vh;
     margin-bottom: -10vh;
   }
+  .card-head {
+    font-size: 18px;
+  }
+  .card-para {
+    font-size: 15px;
+    line-height: 25px;
+  }
+  .card-style {
+    height: 48vh;
+    width: 29vw !important;
+  }
+  .blog-background {
+    height: 100%;
+  }
 }
 @media screen and (min-width: 810.5px) and (max-width: 926px) {
   .our-team-image {
@@ -688,6 +901,22 @@
     width: 30vw;
     height: 35vh;
     margin-bottom: -10vh;
+  }
+}
+@media screen and (min-width: 1100.5px) and (max-width: 1399.5px) {
+  .card-head {
+    font-size: 22px;
+  }
+  .card-para {
+    font-size: 18px;
+    line-height: 40px;
+  }
+  .card-style {
+    height: 70vh;
+    width: 27vw !important;
+  }
+  .blog-background {
+    height: 100%;
   }
 }
 @media screen and (min-width: 1400px) {

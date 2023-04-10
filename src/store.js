@@ -8,13 +8,17 @@ import {
     userUpdateProfileReducer,
     userUpdateReducer
 } from './reducers/userReducers'
+import { addBlogReducer, getBlogReducer, getBlogsReducer } from './reducers/blogReducers'
 
 const reducer = combineReducers({
   userLogin: loginReducer,
   userRegister: registerReducer,
   userDetails: userDetailsReducer,
   userUpdate: userUpdateReducer,
-  userUpdateProfile: userUpdateProfileReducer
+  userUpdateProfile: userUpdateProfileReducer,
+  addBlog: addBlogReducer,
+  blogsData: getBlogsReducer,
+  blog: getBlogReducer
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')

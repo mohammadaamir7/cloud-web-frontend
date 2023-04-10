@@ -4,183 +4,8 @@ import { Container, Row, Col, Image, Modal } from "react-bootstrap";
 import Footer from "../components/footer";
 // import hero from "../assets/images/rectangle-291@2x.png";
 import ButtonComponent from "../components/button";
-import * as Yup from "yup";
-import { useFormik } from "formik";
-import { useDispatch } from "react-redux";
-import { sendEmail as sendEmailFunction } from "../actions/userActions";
-import FormHelperText from "@mui/material/FormHelperText";
-import Checkbox from "@mui/material/Checkbox";
-import TextField from "@mui/material/TextField";
-import Box from "@mui/material/Box";
+import MyVerticallyCenteredModal from "../components/contactModal";
 // import logo_2 from "../assets/images/logo-2.png";
-
-const validationSchema = Yup.object().shape({
-  email: Yup.string("Enter your email")
-    .email("Invalid email")
-    .required("Email Required"),
-  firstName: Yup.string("Enter your first name").required(
-    "First Name Required"
-  ),
-  lastName: Yup.string("Enter your last name").required("Last Name Required"),
-  city: Yup.string("Enter your city").required("City Required"),
-  phone: Yup.string("Enter your phone number")
-    .matches(/^\d{10}$/, "Phone number is not valid")
-    .required("Phone Number Required"),
-});
-
-function MyVerticallyCenteredModal(props) {
-  const [isChecked, setIsChecked] = useState(false);
-  const [showError, setShowError] = useState(false);
-  const dispatch = useDispatch();
-
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      firstName: "",
-      lastName: "",
-      city: "",
-      phone: "",
-    },
-    validationSchema: validationSchema,
-  });
-
-  const sendEmail = () => {
-    setShowError(false);
-    if (!isChecked) {
-      setShowError(true);
-    }
-    dispatch(
-      sendEmailFunction(
-        formik.values.email,
-        formik.values.firstName,
-        formik.values.lastName,
-        formik.values.city,
-        formik.values.phone
-      )
-    );
-  };
-
-  return (
-    <Modal
-      {...props}
-      size="md"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-      <Modal.Header closeButton>
-        <Modal.Title className="modal-head" id="contained-modal-title-vcenter">
-          Contact Us
-        </Modal.Title>
-      </Modal.Header>
-      {/* <Image className="modal-logo" src={logo_2} /> */}
-      <Image className="modal-logo" src={'https://120mybucket.s3.amazonaws.com/images/logo-2.png'} />
-
-      <Modal.Body>
-        <form onSubmit={formik.handleSubmit}>
-          <TextField
-            style={{ margin: "10px 0" }}
-            fullWidth
-            id="email"
-            name="email"
-            label="Email*"
-            className="modal-field"
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            error={formik.touched.email && Boolean(formik.errors.email)}
-            helperText={formik.touched.email && formik.errors.email}
-          />
-
-          <Box
-            component="form"
-            sx={{
-              "& > :not(style)": { m: 1, width: "25ch" },
-            }}
-            noValidate
-            autoComplete="off"
-          >
-            <TextField
-              className="modal-field-two"
-              id="firstName"
-              label="First Name*"
-              variant="outlined"
-              value={formik.values.firstName}
-              onChange={formik.handleChange}
-              error={
-                formik.touched.firstName && Boolean(formik.errors.firstName)
-              }
-              helperText={formik.touched.firstName && formik.errors.firstName}
-            />
-            <TextField
-              className="modal-field-two"
-              id="lastName"
-              label="Last Name*"
-              variant="outlined"
-              value={formik.values.lastName}
-              onChange={formik.handleChange}
-              error={formik.touched.lastName && Boolean(formik.errors.lastName)}
-              helperText={formik.touched.lastName && formik.errors.lastName}
-            />{" "}
-            <TextField
-              className="modal-field-two"
-              id="city"
-              label="City*"
-              variant="outlined"
-              value={formik.values.city}
-              onChange={formik.handleChange}
-              error={formik.touched.city && Boolean(formik.errors.city)}
-              helperText={formik.touched.city && formik.errors.city}
-            />
-            <TextField
-              className="modal-field-two"
-              id="phone"
-              label="Phone*"
-              variant="outlined"
-              value={formik.values.phone}
-              onChange={formik.handleChange}
-              error={formik.touched.phone && Boolean(formik.errors.phone)}
-              helperText={formik.touched.phone && formik.errors.phone}
-            />
-          </Box>
-          <p className="contact-para" style={{ color: "#000000" }}>
-            I would like to sign up with my email address to receive valuable
-            reources and useful tips.
-          </p>
-
-          <div style={{ display: "flex" }}>
-            <Checkbox
-              style={{
-                marginTop: "-2%",
-                marginLeft: "-2%",
-              }}
-              value={isChecked}
-              onChange={(e) => setIsChecked((prev) => !prev)}
-              className="contact-checkbox"
-              label="checkbox"
-            />
-            <p className="contact-para-two" style={{ color: "#000000" }}>
-              By submitting this form you confirm that you agree to our privacy
-              policy.
-            </p>
-          </div>
-          {showError && (
-            <FormHelperText
-              className="contact-para-two"
-              style={{ color: "#d32f2f", fontSize: "15px" }}
-            >
-              Kindly agree to our privacy policy
-            </FormHelperText>
-          )}
-          <ButtonComponent
-            className={"contact-us-button mt-5 rounded-pill"}
-            label={"CONTACT US"}
-            handleClick={sendEmail}
-            type="submit"
-          />
-        </form>
-      </Modal.Body>
-    </Modal>
-  );
-}
 
 const WhoWeAre = () => {
   const [modalShow, setModalShow] = useState(false);
@@ -190,7 +15,12 @@ const WhoWeAre = () => {
       <Navbar />
       <div>
         {/* <Image className="about-us-hero" src={hero} /> */}
-        <Image className="about-us-hero" src={'https://120mybucket.s3.amazonaws.com/images/rectangle-291%402x.png'} />
+        <Image
+          className="about-us-hero"
+          src={
+            "https://120mybucket.s3.amazonaws.com/images/rectangle-291%402x.png"
+          }
+        />
       </div>
       <div>
         <Container>
@@ -200,12 +30,11 @@ const WhoWeAre = () => {
           <Row>
             <Col md={12}>
               <p className="our-team-para">
-                We understand the unique challenges and opportunities that come
-                with moving to the cloud, and we work closely with our clients
-                to develop customized solutions that meet their specific needs.
-                Our services include cloud infrastructure design, security
-                assessments, incident response planning, and ongoing security
-                management.
+                Welcome to our cyber home at Cyber Sec Global LLC.! We are a
+                team of IT professionals who specialize in cybersecurity and
+                cloud solutions architecture. Our expertise is in securing data
+                centers and cloud computing environments through the
+                implementation of best practices and penetration testing.
                 <br />
                 <br />
                 At Cyber-Sec Global LLC, we are committed to staying up-to-date
@@ -2274,11 +2103,53 @@ const WhoWeAre = () => {
           <Row>
             <Col md={12}>
               <p className="our-team-para mt-5">
-                Our services include cloud infrastructure design, security
-                assessments, incident response planning, and ongoing security
-                management. We also stay up-to-date with the latest developments
-                in the industry and are always looking for new ways to help our
-                clients maximize the benefits of the cloud.
+                Here are some key points to help you understand who we are and
+                what we do:
+                <ul>
+                  <li>
+                    We are a team of IT professionals: Our team comprises
+                    experienced professionals in the field of IT with diverse
+                    skill sets and backgrounds.
+                  </li>
+                  <li>
+                    {" "}
+                    Specialize in Cybersecurity: Our team specializes in
+                    cybersecurity, which means we are dedicated to protecting
+                    computer systems and networks from unauthorized access,
+                    theft, or damage to sensitive data.
+                  </li>
+                  <li>
+                    Best Practices of Cloud Solutions Architecting: Our
+                    expertise in cloud solutions architecting means that we can
+                    help you design, build, and manage cloud-based applications
+                    and systems that meet your unique business needs while
+                    maintaining the highest levels of security.
+                  </li>
+                  <li>
+                    Penetration Testing: We also provide penetration testing
+                    services, which involves simulating an attack on your
+                    network or application to identify vulnerabilities and
+                    assess the effectiveness of your security measures.
+                  </li>
+                  Security Experience in Data Centers: Our team has extensive
+                  experience in securing data centers, which are critical to the
+                  functioning of many businesses and organizations. We can help
+                  you implement security measures that protect your data center
+                  from external threats and internal risks.
+                  <li>
+                    Cloud Computing: We also specialize in securing cloud
+                    computing environments, which are increasingly popular for
+                    their scalability, flexibility, and cost-effectiveness. Our
+                    expertise in cloud security means that we can help you
+                    mitigate risks associated with cloud computing, such as data
+                    breaches and unauthorized access.
+                  </li>
+                </ul>
+                <br />
+                We are passionate about what we do and take pride in helping our
+                clients protect their valuable data and assets. If you have any
+                questions or would like to learn more about our services, please
+                don't hesitate to contact us.
               </p>
             </Col>
           </Row>
@@ -2296,9 +2167,9 @@ const WhoWeAre = () => {
           <Row>
             <Col md={12}>
               <p className="our-team-para mb-5">
-                Thank you for considering Cyber Sec Global for your
-                cloud security needs. We look forward to working with you to
-                secure your digital world.
+                Thank you for considering Cyber Sec Global for your cloud
+                security and penetration testing needs. We look forward to working with you to secure
+                your digital world.
               </p>
             </Col>
           </Row>

@@ -4,214 +4,50 @@ import { Container, Row, Col, Image, Modal } from "react-bootstrap";
 import Footer from "../components/footer";
 // import hero from "../assets/images/rectangle-29@2x.png";
 import ButtonComponent from "../components/button";
-import * as Yup from "yup";
-import { useFormik } from "formik";
-import { useDispatch } from "react-redux";
-import { sendEmail as sendEmailFunction } from "../actions/userActions";
-import FormHelperText from "@mui/material/FormHelperText";
-import Checkbox from "@mui/material/Checkbox";
-import TextField from "@mui/material/TextField";
-import Box from "@mui/material/Box";
+import CardComponent from "../components/card";
+import MyVerticallyCenteredModal from "../components/contactModal";
 // import logo_2 from "../assets/images/logo-2.png";
-
-const validationSchema = Yup.object().shape({
-  email: Yup.string("Enter your email")
-    .email("Invalid email")
-    .required("Email Required"),
-  firstName: Yup.string("Enter your first name").required(
-    "First Name Required"
-  ),
-  lastName: Yup.string("Enter your last name").required("Last Name Required"),
-  city: Yup.string("Enter your city").required("City Required"),
-  phone: Yup.string("Enter your phone number")
-    .matches(/^\d{10}$/, "Phone number is not valid")
-    .required("Phone Number Required"),
-});
-
-function MyVerticallyCenteredModal(props) {
-  const [isChecked, setIsChecked] = useState(false);
-  const [showError, setShowError] = useState(false);
-  const dispatch = useDispatch();
-
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      firstName: "",
-      lastName: "",
-      city: "",
-      phone: "",
-    },
-    validationSchema: validationSchema,
-  });
-
-  const sendEmail = () => {
-    setShowError(false);
-    if (!isChecked) {
-      setShowError(true);
-    }
-    dispatch(
-      sendEmailFunction(
-        formik.values.email,
-        formik.values.firstName,
-        formik.values.lastName,
-        formik.values.city,
-        formik.values.phone
-      )
-    );
-  };
-
-  return (
-    <Modal
-      {...props}
-      size="md"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-      <Modal.Header closeButton>
-        <Modal.Title className="modal-head" id="contained-modal-title-vcenter">
-          Contact Us
-        </Modal.Title>
-      </Modal.Header>
-      {/* <Image className="modal-logo" src={logo_2} /> */}
-      <Image className="modal-logo" src={'https://120mybucket.s3.amazonaws.com/images/logo-2.png'} alt="logo" />
-
-      <Modal.Body>
-        <form onSubmit={formik.handleSubmit}>
-          <TextField
-            style={{ margin: "10px 0" }}
-            fullWidth
-            id="email"
-            name="email"
-            label="Email*"
-            className="modal-field"
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            error={formik.touched.email && Boolean(formik.errors.email)}
-            helperText={formik.touched.email && formik.errors.email}
-          />
-
-          <Box
-            component="form"
-            sx={{
-              "& > :not(style)": { m: 1, width: "25ch" },
-            }}
-            noValidate
-            autoComplete="off"
-          >
-            <TextField
-              className="modal-field-two"
-              id="firstName"
-              label="First Name*"
-              variant="outlined"
-              value={formik.values.firstName}
-              onChange={formik.handleChange}
-              error={
-                formik.touched.firstName && Boolean(formik.errors.firstName)
-              }
-              helperText={formik.touched.firstName && formik.errors.firstName}
-            />
-            <TextField
-              className="modal-field-two"
-              id="lastName"
-              label="Last Name*"
-              variant="outlined"
-              value={formik.values.lastName}
-              onChange={formik.handleChange}
-              error={formik.touched.lastName && Boolean(formik.errors.lastName)}
-              helperText={formik.touched.lastName && formik.errors.lastName}
-            />{" "}
-            <TextField
-              className="modal-field-two"
-              id="city"
-              label="City*"
-              variant="outlined"
-              value={formik.values.city}
-              onChange={formik.handleChange}
-              error={formik.touched.city && Boolean(formik.errors.city)}
-              helperText={formik.touched.city && formik.errors.city}
-            />
-            <TextField
-              className="modal-field-two"
-              id="phone"
-              label="Phone*"
-              variant="outlined"
-              value={formik.values.phone}
-              onChange={formik.handleChange}
-              error={formik.touched.phone && Boolean(formik.errors.phone)}
-              helperText={formik.touched.phone && formik.errors.phone}
-            />
-          </Box>
-          <p className="contact-para" style={{ color: "#000000" }}>
-            I would like to sign up with my email address to receive valuable
-            reources and useful tips.
-          </p>
-
-          <div style={{ display: "flex" }}>
-            <Checkbox
-              style={{
-                marginTop: "-2%",
-                marginLeft: "-2%",
-              }}
-              value={isChecked}
-              onChange={(e) => setIsChecked((prev) => !prev)}
-              className="contact-checkbox"
-              label="checkbox"
-            />
-            <p className="contact-para-two" style={{ color: "#000000" }}>
-              By submitting this form you confirm that you agree to our privacy
-              policy.
-            </p>
-          </div>
-          {showError && (
-            <FormHelperText
-              className="contact-para-two"
-              style={{ color: "#d32f2f", fontSize: "15px" }}
-            >
-              Kindly agree to our privacy policy
-            </FormHelperText>
-          )}
-          <ButtonComponent
-            className={"contact-us-button mt-5 rounded-pill"}
-            label={"CONTACT US"}
-            handleClick={sendEmail}
-            type="submit"
-          />
-        </form>
-      </Modal.Body>
-    </Modal>
-  );
-}
 
 const WhatWeDo = () => {
   const [modalShow, setModalShow] = useState(false);
+  const externalPenTest = ["Comprehensive testing of your external network to identify potential vulnerabilities that hackers could exploit.", "Simulated attacks to assess the effectiveness of your security measures.", "Detailed reports outlining vulnerabilities and recommendations for remediation."]
+  const internalPenTest = ["In-depth analysis of your internal network to uncover any security weaknesses.", "Testing from the perspective of a malicious insider to identify potential risks and threats.", "Recommendations for improving your security posture to protect against attacks."]
+  const webPenTest = ["Comprehensive testing of your web applications to identify vulnerabilities such as SQL injection and cross-site scripting.", "Detailed reports outlining vulnerabilities and recommendations for remediation.", "Testing of both custom-built and off-the-shelf applications."]
+  const vulnerability = ["Automated scanning of your network and systems to identify potential vulnerabilities.", "Comprehensive reports outlining vulnerabilities and recommendations for remediation.", "Regular scanning to ensure ongoing security and protection against emerging threats."]
+  const wirelessPenTest = ["Testing of your wireless network to identify potential security risks.", "Identification of rogue access points and other potential vulnerabilities.", "Recommendations for improving your wireless security posture."]
+  const socialaEngineering = ["Simulated attacks to test your employees' awareness of phishing and other social engineering tactics.", "Detailed reports outlining potential risks and recommendations for improving employee awareness and training.", "Regular testing to ensure ongoing employee readiness."]
 
   return (
     <>
       <Navbar />
       <div>
         {/* <Image className="about-us-hero" src={hero} /> */}
-        <Image className="about-us-hero" src={'https://120mybucket.s3.amazonaws.com/images/rectangle-29%402x.png'} />
+        <Image
+          className="about-us-hero"
+          src={
+            "https://120mybucket.s3.amazonaws.com/images/rectangle-29%402x.png"
+          }
+        />
       </div>
       <div>
         <Container>
           <Row>
-            <h1 className="our-team-head mt-5">What We Do</h1>
+            <h1 className="our-team-head mt-5">Services We Offer</h1>
           </Row>
           <Row>
             <Col md={12}>
               <p className="our-team-para">
-                We help businesses of all sizes navigate the complex and
-                ever-changing world of cloud technology. Our team of certified
-                cloud architects and cybersecurity experts specialize in
-                designing and implementing secure, scalable, and reliable cloud
-                infrastructure.
+                Welcome to our Cyber Sec Global ! We offer a range of services
+                to help protect your business from cyber threats. Our team of
+                highly skilled and experienced professionals are committed to
+                keeping your digital assets safe and secure.
                 <br />
                 <br />
                 We provide ongoing security management services to ensure that
                 your cloud infrastructure remains secure and compliant with
                 industry standards. This includes monitoring for security
                 threats, applying security updates, and conducting regular
-                security assessments.
+                security assessments through penetration testing.
               </p>
             </Col>
           </Row>
@@ -449,7 +285,61 @@ const WhatWeDo = () => {
                 We work with you to design and implement a cloud infrastructure
                 that meets your specific business needs and goals. Our solutions
                 are designed to be secure, scalable, and reliable, and are
-                optimized for cost and performance.
+                optimized for cost and performance, Our services include:
+              </p>
+            </Col>
+          </Row>
+          <Row>
+            <Col md={4}>
+              <CardComponent
+                className="mt-5 card-style"
+                title="External Penetration Testing"
+                list={externalPenTest}
+              />
+            </Col>
+            <Col md={4}>
+              <CardComponent
+                className="mt-5 card-style"
+                title="Internal Penetration Testing"
+                list={internalPenTest}
+              />
+            </Col>
+            <Col md={4}>
+              <CardComponent
+                className="mt-5 card-style"
+                title="Web App Penetration Testing"
+                list={webPenTest}
+              />
+            </Col>
+            <Col md={4}>
+              <CardComponent
+                className="mt-5 card-style"
+                title="Vulnerability Scanning"
+                list={vulnerability}
+              />
+            </Col>
+            <Col md={4}>
+              <CardComponent
+                className="mt-5 card-style"
+                title="Wireless Penetration Testing"
+                list={wirelessPenTest}
+              />
+            </Col>
+            <Col md={4}>
+              <CardComponent
+                className="mt-5 card-style"
+                title="Social Engineering"
+                list={socialaEngineering}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col md={12}>
+              <p className="our-team-para mt-5">
+                At our company, we take pride in delivering high-quality and
+                reliable services that help protect your business from cyber
+                threats. Contact us today to learn more about how we can help
+                secure your digital assets.
               </p>
             </Col>
           </Row>
@@ -467,9 +357,9 @@ const WhatWeDo = () => {
           <Row>
             <Col md={12}>
               <p className="our-team-para mb-5">
-                Thank you for considering Cyber Sec Global for your
-                cloud security needs. We look forward to working with you to
-                secure your digital world.
+                Thank you for considering Cyber Sec Global for your cloud
+                security and penetration testing needs. We look forward to working with you to secure
+                your digital world.
               </p>
             </Col>
           </Row>

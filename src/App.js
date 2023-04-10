@@ -8,7 +8,11 @@ import AboutUs from "./screens/aboutUs";
 import ProtectedRoute from "./modules/auth/protectedRoute";
 import WhatWeDo from "./screens/what_we_do";
 import WhoWeAre from "./screens/who_we_are";
+import AddBlog from "./forms/addBlog";
+import Blogs from "./screens/blogs";
+import Blog from "./components/blog";
 import { ToastContainer } from "react-toastify";
+import UpdateBlog from "./forms/updateBlog";
 
 function App() {
   return (
@@ -23,8 +27,12 @@ function App() {
           <Route path="/register" element={<RegisterForm />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/what-we-do" element={<WhatWeDo />} />
+          <Route path="/services" element={<WhatWeDo />} />
           <Route path="/who-we-are" element={<WhoWeAre />} />
+          <Route path="/addBlog" element={<AddBlog />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blog/:id" element={<Blog />} />
+          <Route path="/updateBlog/:id" element={<UpdateBlog />} />
         </Routes>
       </Router>
     </>

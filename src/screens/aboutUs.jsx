@@ -10,183 +10,9 @@ import Footer from "../components/footer";
 // import image4 from "../assets/images/rectangle-33@2x.png";
 // import image5 from "../assets/images/rectangle-34@2x.png";
 import ButtonComponent from "../components/button";
-import TextField from "@mui/material/TextField";
-import * as Yup from "yup";
-import { useFormik } from "formik";
-import Box from "@mui/material/Box";
-import Checkbox from "@mui/material/Checkbox";
-import FormHelperText from "@mui/material/FormHelperText";
-import { useDispatch } from "react-redux";
-import { sendEmail as sendEmailFunction } from "../actions/userActions";
+import MyVerticallyCenteredModal from "../components/contactModal";
 // import logo_2 from "../assets/images/logo-2.png";
 
-const validationSchema = Yup.object().shape({
-  email: Yup.string("Enter your email")
-    .email("Invalid email")
-    .required("Email Required"),
-  firstName: Yup.string("Enter your first name").required(
-    "First Name Required"
-  ),
-  lastName: Yup.string("Enter your last name").required("Last Name Required"),
-  city: Yup.string("Enter your city").required("City Required"),
-  phone: Yup.string("Enter your phone number")
-    .matches(/^\d{10}$/, "Phone number is not valid")
-    .required("Phone Number Required"),
-});
-
-function MyVerticallyCenteredModal(props) {
-  const [isChecked, setIsChecked] = useState(false);
-  const [showError, setShowError] = useState(false);
-  const dispatch = useDispatch();
-
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      firstName: "",
-      lastName: "",
-      city: "",
-      phone: "",
-    },
-    validationSchema: validationSchema,
-  });
-
-  const sendEmail = () => {
-    setShowError(false);
-    if (!isChecked) {
-      setShowError(true);
-    }
-    dispatch(
-      sendEmailFunction(
-        formik.values.email,
-        formik.values.firstName,
-        formik.values.lastName,
-        formik.values.city,
-        formik.values.phone
-      )
-    );
-  };
-
-  return (
-    <Modal
-      {...props}
-      size="md"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered
-    >
-      <Modal.Header closeButton>
-        <Modal.Title className="modal-head" id="contained-modal-title-vcenter">
-          Contact Us
-        </Modal.Title>
-      </Modal.Header>
-      {/* <Image className="modal-logo" src={logo_2} /> */}
-      <Image className="modal-logo" src={'https://120mybucket.s3.amazonaws.com/images/logo-2.png'} alt="logo" />
-
-      <Modal.Body>
-        <form onSubmit={formik.handleSubmit}>
-          <TextField
-            style={{ margin: "10px 0" }}
-            fullWidth
-            id="email"
-            name="email"
-            label="Email*"
-            className="modal-field"
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            error={formik.touched.email && Boolean(formik.errors.email)}
-            helperText={formik.touched.email && formik.errors.email}
-          />
-
-          <Box
-            component="form"
-            sx={{
-              "& > :not(style)": { m: 1, width: "25ch" },
-            }}
-            noValidate
-            autoComplete="off"
-          >
-            <TextField
-              className="modal-field-two"
-              id="firstName"
-              label="First Name*"
-              variant="outlined"
-              value={formik.values.firstName}
-              onChange={formik.handleChange}
-              error={
-                formik.touched.firstName && Boolean(formik.errors.firstName)
-              }
-              helperText={formik.touched.firstName && formik.errors.firstName}
-            />
-            <TextField
-              className="modal-field-two"
-              id="lastName"
-              label="Last Name*"
-              variant="outlined"
-              value={formik.values.lastName}
-              onChange={formik.handleChange}
-              error={formik.touched.lastName && Boolean(formik.errors.lastName)}
-              helperText={formik.touched.lastName && formik.errors.lastName}
-            />{" "}
-            <TextField
-              className="modal-field-two"
-              id="city"
-              label="City*"
-              variant="outlined"
-              value={formik.values.city}
-              onChange={formik.handleChange}
-              error={formik.touched.city && Boolean(formik.errors.city)}
-              helperText={formik.touched.city && formik.errors.city}
-            />
-            <TextField
-              className="modal-field-two"
-              id="phone"
-              label="Phone*"
-              variant="outlined"
-              value={formik.values.phone}
-              onChange={formik.handleChange}
-              error={formik.touched.phone && Boolean(formik.errors.phone)}
-              helperText={formik.touched.phone && formik.errors.phone}
-            />
-          </Box>
-          <p className="contact-para" style={{ color: "#000000" }}>
-            I would like to sign up with my email address to receive valuable
-            reources and useful tips.
-          </p>
-
-          <div style={{ display: "flex" }}>
-            <Checkbox
-              style={{
-                marginTop: "-2%",
-                marginLeft: "-2%",
-              }}
-              value={isChecked}
-              onChange={(e) => setIsChecked((prev) => !prev)}
-              className="contact-checkbox"
-              label="checkbox"
-            />
-            <p className="contact-para-two" style={{ color: "#000000" }}>
-              By submitting this form you confirm that you agree to our privacy
-              policy.
-            </p>
-          </div>
-          {showError && (
-            <FormHelperText
-              className="contact-para-two"
-              style={{ color: "#d32f2f", fontSize: "15px" }}
-            >
-              Kindly agree to our privacy policy
-            </FormHelperText>
-          )}
-          <ButtonComponent
-            className={"contact-us-button mt-5 rounded-pill"}
-            label={"CONTACT US"}
-            handleClick={sendEmail}
-            type="submit"
-          />
-        </form>
-      </Modal.Body>
-    </Modal>
-  );
-}
 
 const AboutUs = () => {
   const [modalShow, setModalShow] = useState(false);
@@ -196,7 +22,12 @@ const AboutUs = () => {
       <Navbar />
       <div>
         {/* <Image className="about-us-hero" src={hero} /> */}
-        <Image className="about-us-hero" src={'https://120mybucket.s3.amazonaws.com/images/rectangle-292%402x.png'} />
+        <Image
+          className="about-us-hero"
+          src={
+            "https://120mybucket.s3.amazonaws.com/images/rectangle-292%402x.png"
+          }
+        />
       </div>
       <div>
         <Container>
@@ -786,51 +617,136 @@ const AboutUs = () => {
           </Row>
           <Row>
             <Col md={6}>
-              {/* <Image src={image1} className="our-team-image" /> */}
-              <Image src={'https://120mybucket.s3.amazonaws.com/images/rectangle-30%402x.png'} className="our-team-image" />
+              {/* <Image src={cyber} className="our-team-image" /> */}
+              <Image
+                src={
+                  "https://120mybucket.s3.amazonaws.com/images/Rectangle+31.png"
+                }
+                className="our-team-image"
+              />
+              <h1 className="name-head">Ali Zain (Cyber Security Expert, Penetration Tester)</h1>
             </Col>
             <Col md={6}>
-              {/* <Image src={image2} className="our-team-image" /> */}
-              <Image src={'https://120mybucket.s3.amazonaws.com/images/rectangle-31%402x.png'} className="our-team-image" />
-            </Col>
-            <Col md={6}>
-              {/* <Image src={image3} className="our-team-image" /> */}
-              <Image src={'https://120mybucket.s3.amazonaws.com/images/rectangle-32%402x.png'} className="our-team-image" />
-            </Col>
-            <Col md={6}>
-              {/* <Image src={image4} className="our-team-image" /> */}
-              <Image src={'https://120mybucket.s3.amazonaws.com/images/rectangle-33%402x.png'} className="our-team-image" />
-            </Col>
-            <Col md={6}>
-              {/* <Image src={image5} className="our-team-image" /> */}
-              <Image src={'https://120mybucket.s3.amazonaws.com/images/rectangle-34%402x.png'} className="our-team-image" />
-            </Col>
-            <Col md={6}>
-              {/* <Image src={image6} className="our-team-image" /> */}
-              <Image src={'https://120mybucket.s3.amazonaws.com/images/rectangle-35%402x.png'} className="our-team-image" />
+              {/* <Image src={dev} className="our-team-image" /> */}
+              <Image
+                src={
+                  "https://120mybucket.s3.amazonaws.com/images/Rectangle+30.png"
+                }
+                className="our-team-image"
+              />
+              <h1 className="name-head">Muhammad Aamir (Full-Stack Engineer, UX/UI Designer)</h1>
             </Col>
           </Row>
           <Row>
             <Col md={12}>
               <p className="our-team-para">
-                We are a team of experienced cloud architects and cybersecurity
-                experts who specialize in designing and implementing secure and
-                reliable cloud infrastructure for businesses of all sizes. With
-                a deep understanding of the latest security best practices and
-                technologies, we help our clients protect their data and
-                applications while also maximizing the benefits of the cloud.
-                <br />
-                Our services include cloud infrastructure design, security
-                assessments, incident response planning, and ongoing security
-                management. Whether you're just getting started with the cloud
-                or looking to improve the security of your existing environment,
-                we have the expertise to help.
-                <br /> Our team is composed of certified cloud and security
-                professionals with years of experience working with a wide range
-                of technologies and platforms, including AWS, Azure, and Google
-                Cloud. We are committed to staying up-to-date with the latest
-                developments in the industry and to providing our clients with
-                the highest level of service and support.
+                We are a leading cybersecurity firm dedicated to providing
+                comprehensive solutions to protect your business from cyber
+                threats. Our team is led by Mr. Ali Zain Zahid, who has
+                extensive experience in the field of penetration testing and
+                exploit development. Here are some key points about Mr. Zahid's
+                background and expertise:
+                <ul>
+                  <li>
+                    Mr. Zahid has been working in the field of cybersecurity for
+                    over a decade, with a particular focus on penetration
+                    testing and exploit development.{" "}
+                  </li>
+                  <li>
+                    {" "}
+                    He has created and participated in multiple Red Team
+                    engagements, helping organizations to identify
+                    vulnerabilities in their systems and improve their overall
+                    security posture.{" "}
+                  </li>
+                  <li>
+                    {" "}
+                    Mr. Zahid holds several Cyber Security credentials,
+                    including the Offensive Security Certified Professional
+                    (OSCP) certification and the Offensive Security Experienced
+                    Penetration Tester (OSEP) certification.{" "}
+                  </li>
+                  <li>
+                    {" "}
+                    These certifications demonstrate Mr. Zahid's deep knowledge
+                    of the latest cybersecurity tools and techniques, as well as
+                    his ability to apply them effectively in real-world
+                    scenarios.{" "}
+                  </li>
+                  In addition to his technical expertise, Mr. Zahid is also
+                  known for his exceptional communication skills and ability to
+                  work closely with clients to understand their unique
+                  cybersecurity needs.{" "}
+                  <li>
+                    {" "}
+                    He is committed to staying up-to-date on the latest
+                    developments in the field and is constantly seeking out new
+                    opportunities to expand his knowledge and skills.
+                  </li>
+                </ul>
+                At our firm, we are proud to have Mr. Zahid leading our team of
+                cybersecurity experts. With his guidance and expertise, we are
+                able to provide our clients with the highest level of
+                cybersecurity protection possible. Whether you are looking for
+                vulnerability assessments, penetration testing, or other
+                cybersecurity services, we are here to help. Contact us today to
+                learn more about how we can help you protect your business from
+                cyber threats.
+              </p>
+              <p className="our-team-para">
+                Our team is also led by Mr. Abdul Hakim A. W. Shabazz El, who
+                has extensive experience in Linux system administration, cloud
+                computing, and penetration testing. Here are some key points
+                about Mr. Shabazz El's background and expertise:
+                <ul>
+                  <li>
+                    Mr. Shabazz El has over a decade of experience in Linux
+                    system administration, with a particular focus on Red Hat
+                    Enterprise Linux and CentOS.
+                  </li>
+                  <li>
+                    He has also worked extensively with cloud computing
+                    platforms, including Amazon Web Services (AWS) and Microsoft
+                    Azure, helping clients to deploy and manage their
+                    applications in the cloud.
+                  </li>
+                  <li>
+                    Mr. Shabazz El is highly skilled in containerization
+                    technologies such as Docker, and has experience in deploying
+                    Kubernetes clusters in production environments.
+                  </li>
+                  <li>
+                    In addition to his technical expertise, Mr. Shabazz El is
+                    also an Offensive Security Certified Professional (OSCP) and
+                    holds several other cybersecurity certifications, including
+                    AWS and Azure certifications as well as DevOps
+                    certifications
+                  </li>
+                  In addition to his technical expertise, Mr. Zahid is also
+                  known for his exceptional communication skills and ability to
+                  work closely with clients to understand their unique
+                  cybersecurity needs.{" "}
+                  <li>
+                    These certifications demonstrate Mr. Shabazz El's deep
+                    knowledge of the latest cybersecurity tools and techniques,
+                    as well as his ability to apply them effectively in
+                    real-world scenarios.
+                  </li>
+                  <li>
+                    Mr. Shabazz El is passionate about helping clients to
+                    improve their cybersecurity posture and is dedicated to
+                    staying up-to-date with the latest developments in the
+                    field.
+                  </li>
+                </ul>
+                At our firm, we are proud to have Mr. Shabazz El leading our
+                team of cybersecurity experts. With his extensive experience and
+                expertise, we are able to provide our clients with comprehensive
+                solutions to protect their businesses from cyber threats.
+                Whether you are looking for help with cloud computing,
+                containerization, or penetration testing, we are here to help.
+                Contact us today to learn more about how we can help you protect
+                your business.
               </p>
             </Col>
           </Row>
@@ -848,9 +764,9 @@ const AboutUs = () => {
           <Row>
             <Col md={12}>
               <p className="our-team-para mb-5">
-                Thank you for considering Cyber Sec Global for your
-                cloud security needs. We look forward to working with you to
-                secure your digital world.
+                Thank you for considering Cyber Sec Global for your cloud
+                security and penetration testing needs. We look forward to
+                working with you to secure your digital world.
               </p>
             </Col>
           </Row>
