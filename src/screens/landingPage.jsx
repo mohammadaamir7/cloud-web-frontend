@@ -142,10 +142,10 @@ const LandingPage = () => {
           <Row>
             <Col md={4}>
               <h1 className="architecture-head mt-5 mb-5">
-                Cloud architecture and security advice
+                Cloud architecture, security advice and Penetration Test
               </h1>
               <p className="architecture-para">
-                Welcome to our cloud architecture and security website!
+                Welcome to our cloud architecture and cyber security website!
                 <br />
                 <br /> As more businesses and individuals turn to the cloud for
                 computing needs, it's important to have a strong foundation in
@@ -162,7 +162,7 @@ const LandingPage = () => {
                 emphasis on security. We understand that trust is a key
                 component of any successful cloud implementation, and we go
                 above and beyond to protect your data and systems. Our security
-                measures include encryption, access controls, and continuous
+                measures include penetration testing, encryption, access controls, and continuous
                 monitoring to ensure that your data is always safe.
                 <br />
                 <br /> Don't hesitate to contact us if you have any questions or
@@ -501,7 +501,7 @@ const LandingPage = () => {
               <h1 className="security-para">
                 We understand that the security of your data is of the utmost
                 importance. That's why we go above and beyond to protect your
-                systems and data, using advanced security measures such as
+                systems and data, using advanced security measures such as penetration testing,
                 encryption, access controls, and continuous monitoring.
               </h1>
             </Col>

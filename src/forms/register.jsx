@@ -179,7 +179,7 @@ const RegisterForm = () => {
                 />
                 <Button
                   style={{ marginTop: "20px" }}
-                  className="rounded-button"
+                  className="rounded-button mb-5"
                   size="large"
                   color="primary"
                   variant="contained"

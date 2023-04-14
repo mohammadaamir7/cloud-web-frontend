@@ -72,6 +72,8 @@
   color: #ffffff;
   font-family: K2D;
   line-height: 54px;
+  cursor: pointer;
+  width: 30%;
 }
 .home-hero {
   background-image: url("https://120mybucket.s3.amazonaws.com/images/rectangle-4%402x.png");
@@ -411,7 +413,13 @@
   height: 70vh;
   border-radius: 2%;
 }
+.simple-link{
+  text-decoration: none;
+}
 @media screen and (max-width: 430px) {
+  .register-background {
+    height: 120vh;
+  }
   .footer-heading {
     font-size: 20px;
     line-height: 30px;

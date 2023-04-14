@@ -6,7 +6,7 @@ import TextField from "@mui/material/TextField";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import InputAdornment from "@mui/material/InputAdornment";
 import { useFormik } from "formik";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { USER_REGISTER_PENDING } from "../constants/userConstants";
@@ -41,7 +41,10 @@ const Footer = () => {
         <Row className="pt-5">
           <Col md={4}>
             {/* <Image className="footer-logo" src={logo_2} /> */}
-            <Image className="footer-logo" src={'https://120mybucket.s3.amazonaws.com/images/logo-2.png'} />
+            <Image
+              className="footer-logo"
+              src={"https://120mybucket.s3.amazonaws.com/images/logo-2.png"}
+            />
           </Col>
           <Col md={4} xs={6} sm={6}>
             <h1 className="footer-heading footer-head-left-margin">
@@ -56,16 +59,16 @@ const Footer = () => {
           </Col>
           <Col md={4} xs={6} sm={6}>
             <h1 className="footer-heading footer-head-left-margin-two">
-              Follow US
+              Follow Us
+            </h1>
+            <h1 onClick={() => window.open("https://www.youtube.com/@programmerboy6315")} className="footer-heading footer-head-left-margin-two">
+              Youtube
             </h1>
             <h1 className="footer-heading footer-head-left-margin-two">
               Twitter
             </h1>
             <h1 className="footer-heading footer-head-left-margin-two">
               Instagram
-            </h1>
-            <h1 className="footer-heading footer-head-left-margin-two">
-              Youtube
             </h1>
           </Col>
         </Row>

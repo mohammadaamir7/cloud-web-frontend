@@ -620,11 +620,14 @@ const AboutUs = () => {
               {/* <Image src={cyber} className="our-team-image" /> */}
               <Image
                 src={
-                  "https://120mybucket.s3.amazonaws.com/images/Rectangle+31.png"
+                  "https://120mybucket.s3.amazonaws.com/images/Rectangle+32.png"
                 }
                 className="our-team-image"
               />
-              <h1 className="name-head">Ali Zain (Cyber Security Expert, Penetration Tester)</h1>
+              <h1 className="name-head">
+                Ali Zain (Cyber Security Expert, Penetration Tester, OSEP and
+                OSCP Certified)
+              </h1>
             </Col>
             <Col md={6}>
               {/* <Image src={dev} className="our-team-image" /> */}
@@ -634,7 +637,9 @@ const AboutUs = () => {
                 }
                 className="our-team-image"
               />
-              <h1 className="name-head">Muhammad Aamir (Full-Stack Engineer, UX/UI Designer)</h1>
+              <h1 className="name-head">
+                Muhammad Aamir (Full-Stack Engineer, UX/UI Designer, DevOps Engineer)
+              </h1>
             </Col>
           </Row>
           <Row>
@@ -642,111 +647,51 @@ const AboutUs = () => {
               <p className="our-team-para">
                 We are a leading cybersecurity firm dedicated to providing
                 comprehensive solutions to protect your business from cyber
-                threats. Our team is led by Mr. Ali Zain Zahid, who has
-                extensive experience in the field of penetration testing and
-                exploit development. Here are some key points about Mr. Zahid's
-                background and expertise:
-                <ul>
-                  <li>
-                    Mr. Zahid has been working in the field of cybersecurity for
-                    over a decade, with a particular focus on penetration
-                    testing and exploit development.{" "}
-                  </li>
-                  <li>
-                    {" "}
-                    He has created and participated in multiple Red Team
-                    engagements, helping organizations to identify
-                    vulnerabilities in their systems and improve their overall
-                    security posture.{" "}
-                  </li>
-                  <li>
-                    {" "}
-                    Mr. Zahid holds several Cyber Security credentials,
-                    including the Offensive Security Certified Professional
-                    (OSCP) certification and the Offensive Security Experienced
-                    Penetration Tester (OSEP) certification.{" "}
-                  </li>
-                  <li>
-                    {" "}
-                    These certifications demonstrate Mr. Zahid's deep knowledge
-                    of the latest cybersecurity tools and techniques, as well as
-                    his ability to apply them effectively in real-world
-                    scenarios.{" "}
-                  </li>
-                  In addition to his technical expertise, Mr. Zahid is also
-                  known for his exceptional communication skills and ability to
-                  work closely with clients to understand their unique
-                  cybersecurity needs.{" "}
-                  <li>
-                    {" "}
-                    He is committed to staying up-to-date on the latest
-                    developments in the field and is constantly seeking out new
-                    opportunities to expand his knowledge and skills.
-                  </li>
-                </ul>
-                At our firm, we are proud to have Mr. Zahid leading our team of
-                cybersecurity experts. With his guidance and expertise, we are
-                able to provide our clients with the highest level of
-                cybersecurity protection possible. Whether you are looking for
-                vulnerability assessments, penetration testing, or other
-                cybersecurity services, we are here to help. Contact us today to
-                learn more about how we can help you protect your business from
-                cyber threats.
+                threats. Our team is led by <strong>Mr. Ali Zain Zahid</strong>,
+                who is <strong>OSEP</strong> and
+                <strong> OSCP</strong> certitfied and has extensive experience
+                in the field of penetration testing and exploit development.
+                Here are some key points about Mr. Zain's background and
+                expertise:
+                <br />
+                <br />
+                <strong>Mr. Zain</strong> has been working in the field of
+                cybersecurity for over a decade, with a particular focus on
+                penetration testing and exploit development.
               </p>
               <p className="our-team-para">
-                Our team is also led by Mr. Abdul Hakim A. W. Shabazz El, who
-                has extensive experience in Linux system administration, cloud
+                Our team is also led by{" "}
+                <strong>Mr. Abdul Hakim A. W. Shabazz El</strong>, who has
+                extensive experience in Linux system administration, cloud
                 computing, and penetration testing. Here are some key points
                 about Mr. Shabazz El's background and expertise:
-                <ul>
-                  <li>
-                    Mr. Shabazz El has over a decade of experience in Linux
-                    system administration, with a particular focus on Red Hat
-                    Enterprise Linux and CentOS.
-                  </li>
-                  <li>
-                    He has also worked extensively with cloud computing
-                    platforms, including Amazon Web Services (AWS) and Microsoft
-                    Azure, helping clients to deploy and manage their
-                    applications in the cloud.
-                  </li>
-                  <li>
-                    Mr. Shabazz El is highly skilled in containerization
-                    technologies such as Docker, and has experience in deploying
-                    Kubernetes clusters in production environments.
-                  </li>
-                  <li>
-                    In addition to his technical expertise, Mr. Shabazz El is
-                    also an Offensive Security Certified Professional (OSCP) and
-                    holds several other cybersecurity certifications, including
-                    AWS and Azure certifications as well as DevOps
-                    certifications
-                  </li>
-                  In addition to his technical expertise, Mr. Zahid is also
-                  known for his exceptional communication skills and ability to
-                  work closely with clients to understand their unique
-                  cybersecurity needs.{" "}
-                  <li>
-                    These certifications demonstrate Mr. Shabazz El's deep
-                    knowledge of the latest cybersecurity tools and techniques,
-                    as well as his ability to apply them effectively in
-                    real-world scenarios.
-                  </li>
-                  <li>
-                    Mr. Shabazz El is passionate about helping clients to
-                    improve their cybersecurity posture and is dedicated to
-                    staying up-to-date with the latest developments in the
-                    field.
-                  </li>
-                </ul>
-                At our firm, we are proud to have Mr. Shabazz El leading our
-                team of cybersecurity experts. With his extensive experience and
-                expertise, we are able to provide our clients with comprehensive
-                solutions to protect their businesses from cyber threats.
-                Whether you are looking for help with cloud computing,
-                containerization, or penetration testing, we are here to help.
-                Contact us today to learn more about how we can help you protect
-                your business.
+                <br />
+                <br />
+                <strong>Mr. Shabazz El</strong> has over a decade of experience
+                in Linux system administration, with a particular focus on Red
+                Hat Enterprise Linux and CentOS. He has also worked extensively
+                with cloud computing platforms, including Amazon Web Services
+                AWS and Microsoft Azure.Mr. Shabazz El is also an Offensive
+                Security Certified Professional OSCP and holds several other
+                cybersecurity certifications, including AWS and Azure
+                certifications as well as DevOps certifications. <br />
+                <br />
+                <strong>Mr. Aamir</strong> has over a decade of experience in
+                Full-Stack application development, with a particular focus on
+                JavaScript development frameworks. He has also worked
+                extensively with cloud computing platforms, including Amazon Web
+                Services AWS and Microsoft Azure. Mr. Aamir is also a UX/UI
+                Designer and he is responsible for developing and maintaining our
+                clients' web applications from start to finish, ensuring
+                seamless integration of design and technology.. <br />
+                <br />
+                At our firm, we are proud to have Mr. Zain and Mr. Shabazz El
+                leading our team of cybersecurity experts and Mr. Aamir leading our teams of Development and Design. With their guidance and
+                expertise, we are able to provide our clients with the highest
+                level of cybersecurity protection and smooth creation of any kind of software application. Whether you are
+                looking for vulnerability assessments, penetration testing,
+                other cybersecurity services or Application design or development, Contact us today to learn more
+                about how we can help you scale and protect your business.
               </p>
             </Col>
           </Row>
