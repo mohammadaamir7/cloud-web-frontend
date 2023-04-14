@@ -61,13 +61,13 @@ const Footer = () => {
             <h1 className="footer-heading footer-head-left-margin-two">
               Follow Us
             </h1>
-            <h1 onClick={() => window.open("https://www.youtube.com/@programmerboy6315")} className="footer-heading footer-head-left-margin-two">
+            <h1 onClick={() => window.open("https://www.youtube.com/@programmerboy6315")} className="footer-heading footer-head-width footer-head-left-margin-two">
               Youtube
             </h1>
-            <h1 className="footer-heading footer-head-left-margin-two">
+            <h1 className="footer-heading footer-head-width footer-head-left-margin-two">
               Twitter
             </h1>
-            <h1 className="footer-heading footer-head-left-margin-two">
+            <h1 className="footer-heading footer-head-width footer-head-left-margin-two">
               Instagram
             </h1>
           </Col>

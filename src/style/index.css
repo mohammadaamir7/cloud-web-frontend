@@ -73,8 +73,12 @@
   font-family: K2D;
   line-height: 54px;
   cursor: pointer;
+}
+
+.footer-head-width{
   width: 30%;
 }
+
 .home-hero {
   background-image: url("https://120mybucket.s3.amazonaws.com/images/rectangle-4%402x.png");
   height: 400px;
@@ -911,7 +915,22 @@
     margin-bottom: -10vh;
   }
 }
-@media screen and (min-width: 1100.5px) and (max-width: 1399.5px) {
+@media screen and (min-width: 1100.5px) and (max-width: 1200px) {
+  .modal-field-two {
+    width: 17vw !important;
+  }
+  .modal-field {
+    width: 418px !important;
+  }
+  .contact-field {
+    width: 35.5vw !important;
+  }
+  .contact-field-two {
+    width: 17vw !important;
+  }
+}
+
+@media screen and (min-width: 1200.5px) and (max-width: 2000.5px) {
   .card-head {
     font-size: 22px;
   }
@@ -925,6 +944,15 @@
   }
   .blog-background {
     height: 100%;
+  }
+  .contact-field {
+    width: 25.5vw !important;
+  }
+  .modal-field-two {
+    width: 10vw !important;
+  }
+  .modal-field {
+    width: 388px !important;
   }
 }
 @media screen and (min-width: 1400px) {

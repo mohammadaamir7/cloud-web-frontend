@@ -86,7 +86,7 @@ const LandingPage = () => {
             <Col md={8}>
               <div className="mt-5">
                 <h1 className="home-heading">
-                  Expert Cloud Architecture and Security Services
+                  Expert Cloud Architecture, Security Services and Penetration Testing
                 </h1>
                 <p className="home-para">
                   Get flexibility and control. Go beyond virtualization with
@@ -142,7 +142,7 @@ const LandingPage = () => {
           <Row>
             <Col md={4}>
               <h1 className="architecture-head mt-5 mb-5">
-                Cloud architecture, security advice and Penetration Test
+                Cloud architecture, security advice and Penetration Testing
               </h1>
               <p className="architecture-para">
                 Welcome to our cloud architecture and cyber security website!
