@@ -25,7 +25,7 @@ export default function MiniDrawer() {
 
   const checkTokenExpiration = () => {
     const info = localStorage.getItem('userInfo');
-    const token = JSON.parse(info).token
+    const token = info ? JSON.parse(info).token : null
     if (token) {
       const { exp } = jwt_decode(token);
       if (exp < Date.now() / 1000) {
