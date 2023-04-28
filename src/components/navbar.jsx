@@ -20,7 +20,7 @@ export default function MiniDrawer() {
   const { userInfo } = userLogin;
 
   useEffect(() => {
-    setInterval(checkTokenExpiration, 1000 * 60);
+    checkTokenExpiration();
   }, []);
 
   const checkTokenExpiration = () => {

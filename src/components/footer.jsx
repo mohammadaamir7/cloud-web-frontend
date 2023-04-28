@@ -48,27 +48,66 @@ const Footer = () => {
           </Col>
           <Col md={4} xs={6} sm={6}>
             <h1 className="footer-heading footer-head-left-margin">
-              Contact US
+              Contact Us
             </h1>
             <h1 className="footer-heading footer-head-left-margin">
-              +1 47 56789
+              +1(347)886-3915
             </h1>
-            <h1 className="footer-heading footer-head-left-margin">
-              CS@gmail.com
+            <h1 className="footer-heading contact-email footer-head-width footer-head-left-margin">
+              cybersecgloballlc@gmail.com
             </h1>
           </Col>
           <Col md={4} xs={6} sm={6}>
             <h1 className="footer-heading footer-head-left-margin-two">
               Follow Us
             </h1>
-            <h1 onClick={() => window.open("https://www.youtube.com/@programmerboy6315")} className="footer-heading footer-head-width footer-head-left-margin-two">
+            <h1
+              onClick={() =>
+                window.open("https://www.youtube.com/@cybersecgloballlc")
+              }
+              className="footer-heading footer-head-width footer-head-left-margin-two"
+            >
               Youtube
             </h1>
-            <h1 className="footer-heading footer-head-width footer-head-left-margin-two">
+            <h1
+              onClick={() => window.open("https://twitter.com/cybersecglobal")}
+              className="footer-heading footer-head-width footer-head-left-margin-two"
+            >
               Twitter
             </h1>
-            <h1 className="footer-heading footer-head-width footer-head-left-margin-two">
+            <h1
+              onClick={() =>
+                window.open("https://www.instagram.com/cybersecgloballlc")
+              }
+              className="footer-heading footer-head-width footer-head-left-margin-two"
+            >
               Instagram
+            </h1>
+            <h1
+              onClick={() =>
+                window.open("https://www.facebook.com/cybersecglobalLLC")
+              }
+              className="footer-heading footer-head-width footer-head-left-margin-two"
+            >
+              Facebook
+            </h1>
+            <h1
+              onClick={() =>
+                window.open(
+                  "https://www.linkedin.com/company/cybersecgloballlc"
+                )
+              }
+              className="footer-heading footer-head-width footer-head-left-margin-two"
+            >
+              LinkedIn
+            </h1>
+            <h1
+              onClick={() =>
+                window.open("https://www.pinterest.com/cybersecgloballlc")
+              }
+              className="footer-heading footer-head-width footer-head-left-margin-two"
+            >
+              Pinerest
             </h1>
           </Col>
         </Row>
