@@ -214,6 +214,10 @@
   margin-top: 30% !important;
   margin-left: 7px !important;
 }
+.blog-text-modal{
+  width: 388px !important;
+  margin-left: 7px !important;
+}
 .contact-para {
   color: #ffffff;
   font-family: Poppins-Normal;
@@ -319,6 +323,15 @@
   color: #ffffff;
 }
 .blog-text::placeholder {
+  color: #ffffff !important;
+}
+.blog-text-two {
+  width: 448px;
+  margin-left: 8px !important;
+  background: #101f34;
+  color: #ffffff;
+}
+.blog-text-two::placeholder {
   color: #ffffff !important;
 }
 .blog-head {
@@ -518,6 +531,10 @@
     width: 88vw !important;
     margin-left: 5% !important;
   }
+  .blog-text-two {
+    width: 88vw !important;
+    margin-left: 5% !important;
+  }
   .modal-field-two {
     margin-top: 5% !important;
     width: 80vw !important;
@@ -525,6 +542,10 @@
   }
   .modal-field {
     margin-top: 2% !important;
+    width: 80vw !important;
+    margin-left: 5% !important;
+  }
+  .blog-text-modal{
     width: 80vw !important;
     margin-left: 5% !important;
   }
@@ -709,7 +730,13 @@
   .contact-field {
     width: 45vw !important;
   }
+  .blog-text-two {
+    width: 45vw !important;
+  }
   .modal-field {
+    width: 45vw !important;
+  }
+  .blog-text-modal{
     width: 45vw !important;
   }
   .modal-field-two {
@@ -844,7 +871,13 @@
   .contact-field {
     width: 45vw !important;
   }
+  .blog-text-two {
+    width: 45vw !important;
+  }
   .modal-field {
+    width: 40vw !important;
+  }
+  .blog-text-modal{
     width: 40vw !important;
   }
   .modal-field-two {
@@ -932,7 +965,13 @@
   .modal-field {
     width: 418px !important;
   }
+  .blog-text-modal{
+    width: 418px !important;
+  }
   .contact-field {
+    width: 35.5vw !important;
+  }
+  .blog-text-two {
     width: 35.5vw !important;
   }
   .contact-field-two {

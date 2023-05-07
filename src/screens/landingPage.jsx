@@ -21,6 +21,8 @@ import { useDispatch } from "react-redux";
 import { sendEmail as sendEmailFunction } from "../actions/userActions";
 import proposal from "../files/blank.pdf";
 import { useState } from "react";
+import { TextareaAutosize } from "@mui/material";
+import CardComponent from "../components/card";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string("Enter your email")
@@ -34,6 +36,9 @@ const validationSchema = Yup.object().shape({
   phone: Yup.string("Enter your phone number")
     .matches(/^\d{10}$/, "Phone number is not valid")
     .required("Phone Number Required"),
+  requirements: Yup.string("Enter your Requirements").required(
+    "Requirements section cannot be empty Required"
+  ),
 });
 
 const LandingPage = () => {
@@ -41,6 +46,37 @@ const LandingPage = () => {
   const navigate = useNavigate();
   const [isChecked, setIsChecked] = useState(false);
   const [showError, setShowError] = useState(false);
+  const [showRequirementsError, setShowRequirementsError] = useState(false);
+  const externalPenTest = [
+    "Comprehensive testing of your external network to identify potential vulnerabilities that hackers could exploit.",
+    "Simulated attacks to assess the effectiveness of your security measures.",
+    "Detailed reports outlining vulnerabilities and recommendations for remediation.",
+  ];
+  const internalPenTest = [
+    "In-depth analysis of your internal network to uncover any security weaknesses.",
+    "Testing from the perspective of a malicious insider to identify potential risks and threats.",
+    "Recommendations for improving your security posture to protect against attacks.",
+  ];
+  const webPenTest = [
+    "Comprehensive testing of your web applications to identify vulnerabilities such as SQL injection and cross-site scripting.",
+    "Detailed reports outlining vulnerabilities and recommendations for remediation.",
+    "Testing of both custom-built and off-the-shelf applications.",
+  ];
+  const vulnerability = [
+    "Automated scanning of your network and systems to identify potential vulnerabilities.",
+    "Comprehensive reports outlining vulnerabilities and recommendations for remediation.",
+    "Regular scanning to ensure ongoing security and protection against emerging threats.",
+  ];
+  const wirelessPenTest = [
+    "Testing of your wireless network to identify potential security risks.",
+    "Identification of rogue access points and other potential vulnerabilities.",
+    "Recommendations for improving your wireless security posture.",
+  ];
+  const socialaEngineering = [
+    "Simulated attacks to test your employees' awareness of phishing and other social engineering tactics.",
+    "Detailed reports outlining potential risks and recommendations for improving employee awareness and training.",
+    "Regular testing to ensure ongoing employee readiness.",
+  ];
 
   const formik = useFormik({
     initialValues: {
@@ -49,14 +85,18 @@ const LandingPage = () => {
       lastName: "",
       city: "",
       phone: "",
+      requirements: "",
     },
     validationSchema: validationSchema,
   });
 
   const sendEmail = () => {
     setShowError(false);
+    setShowRequirementsError(false);
     if (!isChecked) {
       setShowError(true);
+    } else if (!formik.values.requirements) {
+      setShowRequirementsError(true);
     } else {
       dispatch(
         sendEmailFunction(
@@ -64,7 +104,8 @@ const LandingPage = () => {
           formik.values.firstName,
           formik.values.lastName,
           formik.values.city,
-          formik.values.phone
+          formik.values.phone,
+          formik.values.requirements
         )
       );
     }
@@ -86,7 +127,8 @@ const LandingPage = () => {
             <Col md={8}>
               <div className="mt-5">
                 <h1 className="home-heading">
-                  Expert Cloud Architecture, Security Services and Penetration Testing
+                  Expert Cloud Architecture, Security Services and Penetration
+                  Testing
                 </h1>
                 <p className="home-para">
                   Get flexibility and control. Go beyond virtualization with
@@ -141,85 +183,45 @@ const LandingPage = () => {
           </Row>
           <Row>
             <Col md={4}>
-              <h1 className="architecture-head mt-5 mb-5">
-                Cloud architecture, security advice and Penetration Testing
-              </h1>
-              <p className="architecture-para">
-                Welcome to our cloud architecture and cyber security website!
-                <br />
-                <br /> As more businesses and individuals turn to the cloud for
-                computing needs, it's important to have a strong foundation in
-                place to ensure that your data is secure and your systems are
-                reliable. That's where our expertise comes in.
-                <br />
-                <br /> We specialize in designing and building cloud
-                architectures that are scalable, secure, and cost-effective.
-                Whether you're looking to migrate your existing systems to the
-                cloud or build a new cloud-based solution from scratch, we have
-                the knowledge and experience to help you succeed.
-                <br />
-                <br /> In addition to cloud architecture, we also place a strong
-                emphasis on security. We understand that trust is a key
-                component of any successful cloud implementation, and we go
-                above and beyond to protect your data and systems. Our security
-                measures include penetration testing, encryption, access controls, and continuous
-                monitoring to ensure that your data is always safe.
-                <br />
-                <br /> Don't hesitate to contact us if you have any questions or
-                would like to learn more about our services. We look forward to
-                helping you achieve your cloud computing goals!
-              </p>
-              <ButtonComponent
-                className={"meet-experts mt-5 rounded-pill"}
-                label={"Meet Our Experts"}
-                handleClick={(e) => navigate("/about-us")}
+              <CardComponent
+                className="mt-5 card-style"
+                title="External Penetration Testing"
+                list={externalPenTest}
               />
             </Col>
-            <Col md={8}>
-              {/* <Image src={image1} className="architecture-image mb-5 mt-5" /> */}
-              <Image
-                src={
-                  "https://120mybucket.s3.amazonaws.com/images/rectangle-7%402x.png"
-                }
-                className="architecture-image mb-5 mt-5"
+            <Col md={4}>
+              <CardComponent
+                className="mt-5 card-style"
+                title="Internal Penetration Testing"
+                list={internalPenTest}
               />
-              {/* <Image
-                src={image2}
-                className="architecture-image mb-5 mt-5 architecture-image-margin"
-              /> */}
-              <Image
-                src={
-                  "https://120mybucket.s3.amazonaws.com/images/rectangle-8%402x.png"
-                }
-                className="architecture-image mb-5 mt-5 architecture-image-margin"
+            </Col>
+            <Col md={4}>
+              <CardComponent
+                className="mt-5 card-style"
+                title="Web App Penetration Testing"
+                list={webPenTest}
               />
-              {/* <Image src={image3} className="architecture-image mb-5" /> */}
-              <Image
-                src={
-                  "https://120mybucket.s3.amazonaws.com/images/rectangle-9%402x.png"
-                }
-                className="architecture-image mb-5"
+            </Col>
+            <Col md={4}>
+              <CardComponent
+                className="mt-5 card-style"
+                title="Vulnerability Scanning"
+                list={vulnerability}
               />
-              {/* <Image src={image4} className="architecture-image mb-5" /> */}
-              <Image
-                src={
-                  "https://120mybucket.s3.amazonaws.com/images/rectangle-10%402x.png"
-                }
-                className="architecture-image mb-5"
+            </Col>
+            <Col md={4}>
+              <CardComponent
+                className="mt-5 card-style"
+                title="Wireless Penetration Testing"
+                list={wirelessPenTest}
               />
-              {/* <Image src={image5} className="architecture-image mb-5" /> */}
-              <Image
-                src={
-                  "https://120mybucket.s3.amazonaws.com/images/rectangle-11%402x.png"
-                }
-                className="architecture-image mb-5"
-              />
-              {/* <Image src={image6} className="architecture-image mb-5" /> */}
-              <Image
-                src={
-                  "https://120mybucket.s3.amazonaws.com/images/rectangle-12%402x.png"
-                }
-                className="architecture-image mb-5"
+            </Col>
+            <Col md={4}>
+              <CardComponent
+                className="mt-5 card-style"
+                title="Social Engineering"
+                list={socialaEngineering}
               />
             </Col>
           </Row>
@@ -501,8 +503,9 @@ const LandingPage = () => {
               <h1 className="security-para">
                 We understand that the security of your data is of the utmost
                 importance. That's why we go above and beyond to protect your
-                systems and data, using advanced security measures such as penetration testing,
-                encryption, access controls, and continuous monitoring.
+                systems and data, using advanced security measures such as
+                penetration testing, encryption, access controls, and continuous
+                monitoring.
               </h1>
             </Col>
           </Row>
@@ -642,6 +645,45 @@ const LandingPage = () => {
                     helperText={formik.touched.phone && formik.errors.phone}
                   />
                 </Box>
+                <TextareaAutosize
+                  maxRows={6}
+                  minRows={6}
+                  sx={{
+                    border: "1px solid #ffffff",
+                    borderRadius: 1,
+                    input: { color: "#ffffff" },
+                  }}
+                  InputLabelProps={{
+                    style: {
+                      color: "#ffffff",
+                    },
+                  }}
+                  style={{ margin: "10px 0" }}
+                  fullWidth
+                  id="requirements"
+                  name="requirements"
+                  label="Requirements"
+                  placeholder="Requirements*"
+                  className="blog-text-two"
+                  type="text"
+                  value={formik.values.requirements}
+                  onChange={formik.handleChange}
+                  error={
+                    formik.touched.requirements &&
+                    Boolean(formik.errors.requirements)
+                  }
+                  helperText={
+                    formik.touched.requirements && formik.errors.requirements
+                  }
+                />
+                {showRequirementsError && (
+                  <FormHelperText
+                    className="contact-para-two"
+                    style={{ color: "#d32f2f", fontSize: "15px" }}
+                  >
+                    Kindly add your requirements
+                  </FormHelperText>
+                )}
                 <p className="contact-para">
                   I would like to sign up with my email address to receive
                   valuable reources and useful tips.

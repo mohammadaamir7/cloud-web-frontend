@@ -125,8 +125,8 @@ export const login = (email, password) => async (dispatch) => {
 };
 
 export const sendEmail =
-  (email, firstName, lastName, city, phone) => async (dispatch) => {
-    if (!email || !firstName || !lastName || !city || !phone) {
+  (email, firstName, lastName, city, phone, requirements) => async (dispatch) => {
+    if (!email || !firstName || !lastName || !city || !phone || !requirements) {
       return;
     }
     try {
@@ -141,7 +141,7 @@ export const sendEmail =
 
       const { data } = await axios.post(
         `${process.env.REACT_APP_BACKEND_URL}/api/users/sendEmail`,
-        { email, firstName, lastName, city, phone },
+        { email, firstName, lastName, city, phone, requirements },
         config
       );
 

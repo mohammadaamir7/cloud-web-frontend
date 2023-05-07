@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { sendEmail as sendEmailFunction } from "../actions/userActions";
 import { Image, Modal } from "react-bootstrap";
 import ButtonComponent from "./button";
+import { TextareaAutosize } from "@mui/material";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string("Enter your email")
@@ -27,6 +28,8 @@ const validationSchema = Yup.object().shape({
 const MyVerticallyCenteredModal = (props) => {
   const [isChecked, setIsChecked] = useState(false);
   const [showError, setShowError] = useState(false);
+  const [showRequirementsError, setShowRequirementsError] = useState(false);
+
   const dispatch = useDispatch();
 
   const formik = useFormik({
@@ -36,6 +39,7 @@ const MyVerticallyCenteredModal = (props) => {
       lastName: "",
       city: "",
       phone: "",
+      requirements: ""
     },
     validationSchema: validationSchema,
   });
@@ -44,6 +48,8 @@ const MyVerticallyCenteredModal = (props) => {
     setShowError(false);
     if (!isChecked) {
       setShowError(true);
+    }else if(!formik.values.requirements){
+      setShowRequirementsError(true)
     } else {
       dispatch(
         sendEmailFunction(
@@ -51,7 +57,8 @@ const MyVerticallyCenteredModal = (props) => {
           formik.values.firstName,
           formik.values.lastName,
           formik.values.city,
-          formik.values.phone
+          formik.values.phone,
+          formik.values.requirements
         )
       );
     }
@@ -142,6 +149,44 @@ const MyVerticallyCenteredModal = (props) => {
               helperText={formik.touched.phone && formik.errors.phone}
             />
           </Box>
+          <TextareaAutosize
+            maxRows={6}
+            minRows={6}
+            sx={{
+              border: "1px solid #ffffff",
+              borderRadius: 1,
+              input: { color: "#ffffff" },
+            }}
+            InputLabelProps={{
+              style: {
+                color: "#ffffff",
+              },
+            }}
+            style={{ margin: "10px 0" }}
+            fullWidth
+            id="requirements"
+            name="requirements"
+            label="Requirements"
+            placeholder="Requirements*"
+            className="blog-text-modal"
+            type="text"
+            value={formik.values.requirements}
+            onChange={formik.handleChange}
+            error={
+              formik.touched.requirements && Boolean(formik.errors.requirements)
+            }
+            helperText={
+              formik.touched.requirements && formik.errors.requirements
+            }
+          />
+          {showRequirementsError && (
+            <FormHelperText
+              className="contact-para-two"
+              style={{ color: "#d32f2f", fontSize: "15px" }}
+            >
+              Kindly add your requirements
+            </FormHelperText>
+          )}
           <p className="contact-para" style={{ color: "#000000" }}>
             I would like to sign up with my email address to receive valuable
             reources and useful tips.
