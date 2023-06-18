@@ -1,3 +1,6 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Disallow: /profile
+Disallow: /addBlog
+Disallow: /updateBlog
+
+Sitemap: https://cybersecglobal.net/sitemap.xml

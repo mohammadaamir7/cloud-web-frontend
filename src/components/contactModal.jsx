@@ -187,7 +187,7 @@ const MyVerticallyCenteredModal = (props) => {
               Kindly add your requirements
             </FormHelperText>
           )}
-          <p className="contact-para" style={{ color: "#000000" }}>
+          <p className="contact-para modal-text-field" style={{ color: "#000000" }}>
             I would like to sign up with my email address to receive valuable
             reources and useful tips.
           </p>
@@ -200,7 +200,7 @@ const MyVerticallyCenteredModal = (props) => {
               }}
               value={isChecked}
               onChange={(e) => setIsChecked((prev) => !prev)}
-              className="contact-checkbox"
+              className="contact-checkbox modal-text-checkbox"
               label="checkbox"
             />
             <p className="contact-para-two" style={{ color: "#000000" }}>

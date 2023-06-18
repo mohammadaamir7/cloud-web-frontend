@@ -1,28 +1,81 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Navbar from "../components/navbar";
-import { Container, Row, Col, Image, Modal } from "react-bootstrap";
+import { Container, Row, Col, Image,  } from "react-bootstrap";
 import Footer from "../components/footer";
 // import hero from "../assets/images/rectangle-29@2x.png";
 import ButtonComponent from "../components/button";
 import CardComponent from "../components/card";
 import MyVerticallyCenteredModal from "../components/contactModal";
+import { services } from "../constants/servicesData";
+import { getBreadcrumbSchema, getContactPointSchema, getOrganizationSchema, getWebSiteSchema, servicesList } from "../actions/schemas";
+import { Helmet } from "react-helmet";
 // import logo_2 from "../assets/images/logo-2.png";
 
 const WhatWeDo = () => {
   const [modalShow, setModalShow] = useState(false);
-  const externalPenTest = ["Comprehensive testing of your external network to identify potential vulnerabilities that hackers could exploit.", "Simulated attacks to assess the effectiveness of your security measures.", "Detailed reports outlining vulnerabilities and recommendations for remediation."]
-  const internalPenTest = ["In-depth analysis of your internal network to uncover any security weaknesses.", "Testing from the perspective of a malicious insider to identify potential risks and threats.", "Recommendations for improving your security posture to protect against attacks."]
-  const webPenTest = ["Comprehensive testing of your web applications to identify vulnerabilities such as SQL injection and cross-site scripting.", "Detailed reports outlining vulnerabilities and recommendations for remediation.", "Testing of both custom-built and off-the-shelf applications."]
-  const vulnerability = ["Automated scanning of your network and systems to identify potential vulnerabilities.", "Comprehensive reports outlining vulnerabilities and recommendations for remediation.", "Regular scanning to ensure ongoing security and protection against emerging threats."]
-  const wirelessPenTest = ["Testing of your wireless network to identify potential security risks.", "Identification of rogue access points and other potential vulnerabilities.", "Recommendations for improving your wireless security posture."]
-  const socialaEngineering = ["Simulated attacks to test your employees' awareness of phishing and other social engineering tactics.", "Detailed reports outlining potential risks and recommendations for improving employee awareness and training.", "Regular testing to ensure ongoing employee readiness."]
+ // Define the data for each schema
+  const serviceListData = servicesList(services);
+ const schemaData =  useMemo(() => [
+  {
+    type: 'application/ld+json',
+    data: getOrganizationSchema(),
+  },
+  {
+    type: 'application/ld+json',
+    data: getBreadcrumbSchema(),
+  },
+  {
+    type: 'application/ld+json',
+    data: getContactPointSchema(),
+  },
+  {
+    type: 'application/ld+json',
+    data: getWebSiteSchema(),
+  },
+  {
+    type: 'application/ld+json',
+    data: serviceListData,
+  },
+], []);
+
+useEffect(() => {
+  // Remove existing schema scripts
+  const existingSchemaScripts = document.querySelectorAll('script[data-schema]');
+  existingSchemaScripts.forEach((script) => script.remove());
+
+  schemaData.forEach((schema) => {
+    const script = document.createElement('script');
+    script.type = schema.type;
+    script.text = JSON.stringify(schema.data);
+    document.head.appendChild(script);
+  });
+}, [schemaData]);
 
   return (
     <>
+     <Helmet>
+        <meta charSet="utf-8" />
+        <title>Services - Cyber Sec Global</title>
+        <meta name="description" content="Enhance your security systems with our cyber services. We provide internal and external network penetration testing, vulnerability scanning, and social engineering cyber security. Protect your business now." />
+        <meta name="keywords" content="security systems, cyber, internal network penetration testing, external network penetration testing, social engineering cyber security,vulnerability scanning system " />
+        <meta property="og:title" content="Services - Cyber Sec Global" />
+        <meta property="og:description" content="Enhance your security systems with our cyber services. We provide internal and external network penetration testing, vulnerability scanning, and social engineering cyber security. Protect your business now." />
+        <meta property="og:url" content="https://cybersecglobal.net/services" />
+        <meta property="og:image" content="https://120mybucket.s3.amazonaws.com/images/logobutton%403x.png" />
+        <meta name="twitter:card" content="Enhance your security systems with our cyber services. We provide internal and external network penetration testing, vulnerability scanning, and social engineering cyber security. Protect your business now." />
+        <meta name="twitter:title" content="Services - Cyber Sec Global" />
+        <meta name="twitter:description" content="Enhance your security systems with our cyber services. We provide internal and external network penetration testing, vulnerability scanning, and social engineering cyber security. Protect your business now." />
+        <meta name="twitter:image" content="https://120mybucket.s3.amazonaws.com/images/logobutton%403x.png" />
+
+ 
+        
+      </Helmet>
+
       <Navbar />
       <div>
         {/* <Image className="about-us-hero" src={hero} /> */}
         <Image
+        alt="hero image for page services; offered by Cyber-Sec Global LLC"
           className="about-us-hero"
           src={
             "https://120mybucket.s3.amazonaws.com/images/rectangle-29%402x.png"
@@ -37,17 +90,10 @@ const WhatWeDo = () => {
           <Row>
             <Col md={12}>
               <p className="our-team-para">
-                Welcome to our Cyber Sec Global ! We offer a range of services
-                to help protect your business from cyber threats. Our team of
-                highly skilled and experienced professionals are committed to
-                keeping your digital assets safe and secure.
+              Welcome to Cyber Sec Global! Our services encompass security systems, cyber solutions, internal network penetration testing, external network penetration testing, and social engineering cyber security. Trust our highly skilled professionals to safeguard your digital assets.
                 <br />
                 <br />
-                We provide ongoing security management services to ensure that
-                your cloud infrastructure remains secure and compliant with
-                industry standards. This includes monitoring for security
-                threats, applying security updates, and conducting regular
-                security assessments through penetration testing.
+                Count on us for ongoing security management services, ensuring your cloud infrastructure remains secure and compliant. Our expertise includes monitoring for security threats, applying updates, and conducting regular penetration testing assessments.
               </p>
             </Col>
           </Row>
@@ -282,56 +328,25 @@ const WhatWeDo = () => {
           <Row>
             <Col md={12}>
               <p className="our-team-para mt-5">
-                We work with you to design and implement a cloud infrastructure
-                that meets your specific business needs and goals. Our solutions
-                are designed to be secure, scalable, and reliable, and are
-                optimized for cost and performance, Our services include:
+              Collaboratively, we design and implement secure, scalable, and reliable cloud infrastructures tailored to your business needs. Our solutions are optimized for cost and performance, offering comprehensive security measures. Our services include:
               </p>
             </Col>
           </Row>
           <Row>
-            <Col md={4}>
-              <CardComponent
-                className="mt-5 card-style"
-                title="External Penetration Testing"
-                list={externalPenTest}
-              />
-            </Col>
-            <Col md={4}>
-              <CardComponent
-                className="mt-5 card-style"
-                title="Internal Penetration Testing"
-                list={internalPenTest}
-              />
-            </Col>
-            <Col md={4}>
-              <CardComponent
-                className="mt-5 card-style"
-                title="Web App Penetration Testing"
-                list={webPenTest}
-              />
-            </Col>
-            <Col md={4}>
-              <CardComponent
-                className="mt-5 card-style"
-                title="Vulnerability Scanning"
-                list={vulnerability}
-              />
-            </Col>
-            <Col md={4}>
-              <CardComponent
-                className="mt-5 card-style"
-                title="Wireless Penetration Testing"
-                list={wirelessPenTest}
-              />
-            </Col>
-            <Col md={4}>
-              <CardComponent
-                className="mt-5 card-style"
-                title="Social Engineering"
-                list={socialaEngineering}
-              />
-            </Col>
+          {
+              services.map((x, i) => {
+                return (
+                  <Col md={4}>
+                    <CardComponent
+                      key={i}
+                      className="mt-5 card-style"
+                      title={x.title}
+                      list={x.points}
+                    />
+                  </Col>
+                )
+              })
+            }
           </Row>
           <Row>
             <Col md={12}>

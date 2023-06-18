@@ -1,6 +1,6 @@
 import { Image, Container, Row, Col } from "react-bootstrap";
 import Navbar from "../components/navbar";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import Footer from "../components/footer";
 // import flattechnology from "../assets/images/flattechnology.png";
 // import image1 from "../assets/images/rectangle-7@2x.png";
@@ -20,9 +20,12 @@ import Checkbox from "@mui/material/Checkbox";
 import { useDispatch } from "react-redux";
 import { sendEmail as sendEmailFunction } from "../actions/userActions";
 import proposal from "../files/blank.pdf";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { TextareaAutosize } from "@mui/material";
 import CardComponent from "../components/card";
+import { Helmet } from "react-helmet";
+import { getBreadcrumbSchema, getContactPointSchema, getOpenAnAccountSchema, getOrganizationSchema, getWebSiteSchema, servicesList } from "../actions/schemas";
+import { services } from "../constants/servicesData";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string("Enter your email")
@@ -43,40 +46,52 @@ const validationSchema = Yup.object().shape({
 
 const LandingPage = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [isChecked, setIsChecked] = useState(false);
   const [showError, setShowError] = useState(false);
   const [showRequirementsError, setShowRequirementsError] = useState(false);
-  const externalPenTest = [
-    "Comprehensive testing of your external network to identify potential vulnerabilities that hackers could exploit.",
-    "Simulated attacks to assess the effectiveness of your security measures.",
-    "Detailed reports outlining vulnerabilities and recommendations for remediation.",
-  ];
-  const internalPenTest = [
-    "In-depth analysis of your internal network to uncover any security weaknesses.",
-    "Testing from the perspective of a malicious insider to identify potential risks and threats.",
-    "Recommendations for improving your security posture to protect against attacks.",
-  ];
-  const webPenTest = [
-    "Comprehensive testing of your web applications to identify vulnerabilities such as SQL injection and cross-site scripting.",
-    "Detailed reports outlining vulnerabilities and recommendations for remediation.",
-    "Testing of both custom-built and off-the-shelf applications.",
-  ];
-  const vulnerability = [
-    "Automated scanning of your network and systems to identify potential vulnerabilities.",
-    "Comprehensive reports outlining vulnerabilities and recommendations for remediation.",
-    "Regular scanning to ensure ongoing security and protection against emerging threats.",
-  ];
-  const wirelessPenTest = [
-    "Testing of your wireless network to identify potential security risks.",
-    "Identification of rogue access points and other potential vulnerabilities.",
-    "Recommendations for improving your wireless security posture.",
-  ];
-  const socialaEngineering = [
-    "Simulated attacks to test your employees' awareness of phishing and other social engineering tactics.",
-    "Detailed reports outlining potential risks and recommendations for improving employee awareness and training.",
-    "Regular testing to ensure ongoing employee readiness.",
-  ];
+  // Define the data for each schema
+  const serviceListData = servicesList(services);
+  const schemaData = useMemo(() => [
+    {
+      type: 'application/ld+json',
+      data: getOrganizationSchema(),
+    },
+    {
+      type: 'application/ld+json',
+      data: getBreadcrumbSchema(),
+    },
+    {
+      type: 'application/ld+json',
+      data: getContactPointSchema(),
+    },
+    {
+      type: 'application/ld+json',
+      data: getWebSiteSchema(),
+    },
+    {
+      type: 'application/ld+json',
+      data: getOpenAnAccountSchema(),
+    },
+    {
+      type: 'application/ld+json',
+      data: serviceListData,
+    },
+  ], []);
+
+  useEffect(() => {
+    // Remove existing schema scripts
+  const existingSchemaScripts = document.querySelectorAll('script[data-schema]');
+  existingSchemaScripts.forEach((script) => script.remove());
+
+    schemaData.forEach((schema) => {
+      const script = document.createElement('script');
+      script.type = schema.type;
+      script.text = JSON.stringify(schema.data);
+      document.head.appendChild(script);
+    });
+  }, [schemaData]);
+
 
   const formik = useFormik({
     initialValues: {
@@ -120,6 +135,27 @@ const LandingPage = () => {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Cyber Sec Global</title>
+        <meta name="description" content="Stay protected with our cyber security scan. We offer internal and external penetration testing, vulnerability detection, and social engineering services. Join us today for global cyber security." />
+        <meta name="keywords" content="cyber global, cyber security scan, external penetration testing companies, internal penetration testing, internal and external penetration testing, vulnerability detection, social engineering services" />
+
+        <meta property="og:title" content="Cyber Sec Global" />
+        <meta property="og:description" content="Stay protected with our cyber security scan. We offer internal and external penetration testing, vulnerability detection, and social engineering services. Join us today for global cyber security." />
+        <meta property="og:url" content="https://cybersecglobal.net" />
+        <meta property="og:image" content="https://120mybucket.s3.amazonaws.com/images/logobutton%403x.png" />
+        <meta name="twitter:card" content="Stay protected with our cyber security scan. We offer internal and external penetration testing, vulnerability detection, and social engineering services. Join us today for global cyber security." />
+        <meta name="twitter:title" content="Cyber Sec Global" />
+        <meta name="twitter:description" content="Stay protected with our cyber security scan. We offer internal and external penetration testing, vulnerability detection, and social engineering services. Join us today for global cyber security." />
+        <meta name="twitter:image" content="https://120mybucket.s3.amazonaws.com/images/logobutton%403x.png" />
+
+
+
+
+      </Helmet>
+
+
       <Navbar />
       <div className="home-hero">
         <Container>
@@ -150,6 +186,7 @@ const LandingPage = () => {
                 {/* <Image className="flattentech-image" src={flattechnology} /> */}
                 <Image
                   className="flattentech-image"
+                  alt="Cyber-Sec Global LLC, hero image component"
                   src={
                     "https://120mybucket.s3.amazonaws.com/images/flattechnology.png"
                   }
@@ -182,48 +219,15 @@ const LandingPage = () => {
             </Col>
           </Row>
           <Row>
-            <Col md={4}>
-              <CardComponent
-                className="mt-5 card-style"
-                title="External Penetration Testing"
-                list={externalPenTest}
-              />
-            </Col>
-            <Col md={4}>
-              <CardComponent
-                className="mt-5 card-style"
-                title="Internal Penetration Testing"
-                list={internalPenTest}
-              />
-            </Col>
-            <Col md={4}>
-              <CardComponent
-                className="mt-5 card-style"
-                title="Web App Penetration Testing"
-                list={webPenTest}
-              />
-            </Col>
-            <Col md={4}>
-              <CardComponent
-                className="mt-5 card-style"
-                title="Vulnerability Scanning"
-                list={vulnerability}
-              />
-            </Col>
-            <Col md={4}>
-              <CardComponent
-                className="mt-5 card-style"
-                title="Wireless Penetration Testing"
-                list={wirelessPenTest}
-              />
-            </Col>
-            <Col md={4}>
-              <CardComponent
-                className="mt-5 card-style"
-                title="Social Engineering"
-                list={socialaEngineering}
-              />
-            </Col>
+            {
+              services.map((x, i) => {
+                return (
+                  <Col md={4}>
+                    <CardComponent key={i} className="mt-5 card-style" title={x.title} list={x.points} />
+                  </Col>
+                )
+              })}
+
           </Row>
         </Container>
       </div>
@@ -518,6 +522,7 @@ const LandingPage = () => {
               {/* <Image className="contact-logo" src={logo_2} /> */}
               <Image
                 className="contact-logo"
+                alt="Cyber-Sec Global LLC"
                 src={"https://120mybucket.s3.amazonaws.com/images/logo-2.png"}
               />
             </Col>
@@ -583,7 +588,6 @@ const LandingPage = () => {
                     sx={{
                       border: "1px solid #ffffff",
                       borderRadius: 1,
-                      input: { color: "#ffffff" },
                       input: { color: "#ffffff" },
                     }}
                     InputLabelProps={{
@@ -715,7 +719,7 @@ const LandingPage = () => {
                   </FormHelperText>
                 )}
                 <ButtonComponent
-                  className={"contact-us-button mt-5 rounded-pill"}
+                  className={"contact-us-button-initial mt-5 rounded-pill"}
                   label={"CONTACT US"}
                   handleClick={sendEmail}
                   type="submit"

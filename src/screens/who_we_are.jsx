@@ -1,21 +1,70 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Navbar from "../components/navbar";
-import { Container, Row, Col, Image, Modal } from "react-bootstrap";
+import { Container, Row, Col, Image, } from "react-bootstrap";
 import Footer from "../components/footer";
 // import hero from "../assets/images/rectangle-291@2x.png";
 import ButtonComponent from "../components/button";
 import MyVerticallyCenteredModal from "../components/contactModal";
+import { getBreadcrumbSchema, getContactPointSchema, getOrganizationSchema } from "../actions/schemas";
+import { Helmet } from "react-helmet";
 // import logo_2 from "../assets/images/logo-2.png";
 
 const WhoWeAre = () => {
   const [modalShow, setModalShow] = useState(false);
+  // Define the data for each schema
+  const schemaData = useMemo(() => [
+    {
+      type: 'application/ld+json',
+      data: getOrganizationSchema(),
+    },
+    {
+      type: 'application/ld+json',
+      data: getBreadcrumbSchema(),
+    },
+    {
+      type: 'application/ld+json',
+      data: getContactPointSchema(),
+    },
+  ], []);
+
+  useEffect(() => {
+    // Remove existing schema scripts
+  const existingSchemaScripts = document.querySelectorAll('script[data-schema]');
+  existingSchemaScripts.forEach((script) => script.remove());
+
+    schemaData.forEach((schema) => {
+      const script = document.createElement('script');
+      script.type = schema.type;
+      script.text = JSON.stringify(schema.data);
+      document.head.appendChild(script);
+    });
+  }, [schemaData]);
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Our Team - Cyber Sec Global</title>
+        <meta name="description" content="Discover our expertise in internal infrastructure penetration testing and social engineering IT security. As a global cyber security company, we offer external penetration testing and sec cyber solutions." />
+        <meta name="keywords" content="internal infrastructure penetration testing, sec cyber, internal penetration, social engineering it security, global cyber security, external penetration testing" />
+        <meta property="og:title" content="Our Team - Cyber Sec Global" />
+        <meta property="og:description" content="Discover our expertise in internal infrastructure penetration testing and social engineering IT security. As a global cyber security company, we offer external penetration testing and sec cyber solutions." />
+        <meta property="og:url" content="https://cybersecglobal.net/who-we-are" />
+        <meta property="og:image" content="https://120mybucket.s3.amazonaws.com/images/logobutton%403x.png" />
+        <meta name="twitter:card" content="Discover our expertise in internal infrastructure penetration testing and social engineering IT security. As a global cyber security company, we offer external penetration testing and sec cyber solutions." />
+        <meta name="twitter:title" content="Our Team - Cyber Sec Global" />
+        <meta name="twitter:description" content="Discover our expertise in internal infrastructure penetration testing and social engineering IT security. As a global cyber security company, we offer external penetration testing and sec cyber solutions." />
+        <meta name="twitter:image" content="https://120mybucket.s3.amazonaws.com/images/logobutton%403x.png" />
+
+
+
+      </Helmet>
+
       <Navbar />
       <div>
         {/* <Image className="about-us-hero" src={hero} /> */}
         <Image
+          alt="who we are page, hero images of Cyber-Sec Global LLC"
           className="about-us-hero"
           src={
             "https://120mybucket.s3.amazonaws.com/images/rectangle-291%402x.png"
@@ -30,19 +79,10 @@ const WhoWeAre = () => {
           <Row>
             <Col md={12}>
               <p className="our-team-para">
-                Welcome to our cyber home at Cyber Sec Global LLC.! We are a
-                team of IT professionals who specialize in cybersecurity and
-                cloud solutions architecture. Our expertise is in securing data
-                centers and cloud computing environments through the
-                implementation of best practices and penetration testing.
+                Welcome to Cyber Sec Global LLC, your home for comprehensive cyber solutions. As IT professionals, we specialize in internal infrastructure penetration testing, sec cyber, internal penetration, social engineering IT security, and global cyber security. Trust us to secure your data centers and cloud computing environments through best practices and external penetration testing.
                 <br />
                 <br />
-                At Cyber-Sec Global LLC, we are committed to staying up-to-date
-                with the latest developments in the industry and to providing
-                our clients with the highest level of service and support.
-                Whether you're just getting started with the cloud or looking to
-                improve the security of your existing environment, we have the
-                expertise to help.
+                At Cyber Sec Global LLC, we prioritize staying up-to-date with industry developments and providing top-notch service and support to our clients. Whether you're new to the cloud or seeking to enhance your existing security, our expertise is here to assist you.
               </p>
             </Col>
           </Row>
@@ -2101,55 +2141,33 @@ const WhoWeAre = () => {
             </Col>
           </Row>
           <Row>
+            <h1 className="our-team-head mt-5">Services</h1>
+          </Row>
+          <Row>
             <Col md={12}>
               <p className="our-team-para mt-5">
-                Here are some key points to help you understand who we are and
-                what we do:
+                Here's what you need to know about us:
                 <ul>
                   <li>
-                    We are a team of IT professionals: Our team comprises
-                    experienced professionals in the field of IT with diverse
-                    skill sets and backgrounds.
+                    We are a team of IT professionals: Our diverse team brings together experienced IT professionals with various backgrounds and skill sets.
                   </li>
                   <li>
                     {" "}
-                    Specialize in Cybersecurity: Our team specializes in
-                    cybersecurity, which means we are dedicated to protecting
-                    computer systems and networks from unauthorized access,
-                    theft, or damage to sensitive data.
+                    Cybersecurity specialization: Our dedicated focus is on safeguarding computer systems and networks from unauthorized access, theft, and data damage.
                   </li>
                   <li>
-                    Best Practices of Cloud Solutions Architecting: Our
-                    expertise in cloud solutions architecting means that we can
-                    help you design, build, and manage cloud-based applications
-                    and systems that meet your unique business needs while
-                    maintaining the highest levels of security.
+                    Cloud solutions architecting best practices: We excel in designing, building, and managing secure cloud-based applications and systems tailored to your unique business needs
                   </li>
                   <li>
-                    Penetration Testing: We also provide penetration testing
-                    services, which involves simulating an attack on your
-                    network or application to identify vulnerabilities and
-                    assess the effectiveness of your security measures.
+                    Penetration testing: Our services include thorough penetration testing, simulating attacks to identify vulnerabilities and evaluate the effectiveness of your security measures.
                   </li>
-                  Security Experience in Data Centers: Our team has extensive
-                  experience in securing data centers, which are critical to the
-                  functioning of many businesses and organizations. We can help
-                  you implement security measures that protect your data center
-                  from external threats and internal risks.
+                  Data center security expertise: With extensive experience in securing data centers, we implement measures to protect against external threats and internal risks.
                   <li>
-                    Cloud Computing: We also specialize in securing cloud
-                    computing environments, which are increasingly popular for
-                    their scalability, flexibility, and cost-effectiveness. Our
-                    expertise in cloud security means that we can help you
-                    mitigate risks associated with cloud computing, such as data
-                    breaches and unauthorized access.
+                    Cloud computing security: We specialize in securing cloud computing environments, mitigating risks such as data breaches and unauthorized access.
                   </li>
                 </ul>
                 <br />
-                We are passionate about what we do and take pride in helping our
-                clients protect their valuable data and assets. If you have any
-                questions or would like to learn more about our services, please
-                don't hesitate to contact us.
+                We are passionate about protecting your valuable data and assets. Feel free to reach out to us with any questions or to learn more about our services.
               </p>
             </Col>
           </Row>

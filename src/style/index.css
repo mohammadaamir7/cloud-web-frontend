@@ -74,7 +74,7 @@
   line-height: 54px;
   cursor: pointer;
 }
-.footer-head-width{
+.footer-head-width {
   width: 30%;
 }
 
@@ -214,7 +214,7 @@
   margin-top: 30% !important;
   margin-left: 7px !important;
 }
-.blog-text-modal{
+.blog-text-modal {
   width: 388px !important;
   margin-left: 7px !important;
 }
@@ -243,6 +243,19 @@
   border: 1px solid #ffd700;
 }
 .contact-us-button:hover {
+  background-color: #ffd700;
+  color: #000000;
+}
+.contact-us-button-initial {
+  margin-bottom: 20%;
+  font-family: Poppins;
+  background-color: #ffd700;
+  color: #000000;
+  width: 189px;
+  height: 49px;
+  border: 1px solid #ffd700;
+}
+.contact-us-button-initial:hover {
   background-color: #ffd700;
   color: #000000;
 }
@@ -420,21 +433,234 @@
   text-align: center;
   margin-top: 2vh;
 }
-.name-head{
+.name-head {
   font-size: 20px;
   margin-bottom: 5vh;
   text-align: center;
   font-family: K2D;
 }
-.blog-image{
+.blog-image {
   width: 100%;
   height: 70vh;
   border-radius: 2%;
 }
-.simple-link{
+.simple-link {
   text-decoration: none;
 }
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 380px) {
+  .card-style {
+    height: 95vh;
+    width: 95vw !important;
+  }
+  .register-background {
+    height: 120vh;
+  }
+  .footer-heading {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .footer-logo {
+    margin-left: 22%;
+  }
+
+  .footer-head-left-margin {
+    margin-left: 15%;
+  }
+
+  .footer-head-left-margin-two {
+    margin-left: 20%;
+  }
+
+  .footer-heading-base {
+    margin-left: 27%;
+    margin-top: 8%;
+  }
+  .home-hero {
+    height: auto;
+  }
+  .home-heading {
+    font-size: 25px;
+  }
+  .home-para {
+    margin-top: 5%;
+    font-size: 13px;
+  }
+  .home-para-two {
+    font-size: 18px;
+  }
+  .flattentech-image {
+    margin-left: -5% !important;
+  }
+  .services-head {
+    text-align: center;
+    font-size: 10vw;
+  }
+  .llc-para {
+    font-size: 17px;
+  }
+  .architecture-head {
+    font-size: 25px;
+  }
+  .meet-experts {
+    margin-left: 20%;
+  }
+  .architecture-image {
+    margin-left: 10%;
+    width: 78vw;
+  }
+  .architecture-image-margin {
+    margin-top: 0 !important;
+  }
+  .expertise-para {
+    font-size: 22px;
+    margin-right: 0;
+    margin-left: 3%;
+  }
+  .expertise-svg {
+    width: 320px;
+    height: 400px;
+    margin-left: 0;
+  }
+  .security-para {
+    font-size: 22px;
+    margin-right: 0;
+    margin-left: 3%;
+    margin-top: 8%;
+  }
+  .security-svg {
+    width: 320px;
+    height: 400px;
+    margin-left: 0;
+  }
+  .contact-para {
+    margin-left: 10%;
+    margin-right: 0;
+    margin-top: 5%;
+  }
+  .contact-field-two {
+    margin-top: 5% !important;
+    width: 88vw !important;
+    margin-left: 5% !important;
+  }
+  .contact-field {
+    margin-top: 2% !important;
+    width: 88vw !important;
+    margin-left: 5% !important;
+  }
+  .blog-text-two {
+    width: 88vw !important;
+    margin-left: 5% !important;
+  }
+  .modal-field-two {
+    margin-top: 5% !important;
+    width: 80vw !important;
+    margin-left: 5% !important;
+  }
+  .modal-field {
+    margin-top: 2% !important;
+    width: 80vw !important;
+    margin-left: 5% !important;
+  }
+  .blog-text-modal {
+    width: 80vw !important;
+    margin-left: 5% !important;
+  }
+  .delete-modal-para {
+    margin-top: 2% !important;
+  }
+  .contact-checkbox {
+    margin-left: 5% !important;
+  }
+  .contact-us-button {
+    margin-left: 26%;
+  }
+  .contact-us-button-initial {
+    margin-left: 26%;
+  }
+  .update-blog-button {
+    margin-left: 5%;
+    width: 40vw;
+  }
+  .delete-blog-button {
+    margin-left: 5%;
+    width: 40vw;
+  }
+  .contact-logo {
+    width: 55vw;
+    height: 30vh;
+    margin-bottom: 0;
+    margin-left: 22%;
+  }
+  .about-us-hero {
+    height: 45vh;
+    width: 100%;
+  }
+  .about-us-head {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 0;
+  }
+  .experienced-svg {
+    margin-top: 0;
+    width: 100vw;
+  }
+  .our-team-image {
+    width: 94.5vw;
+    height: 40vh;
+  }
+  .our-team-para {
+    font-size: 18px;
+    line-height: 30px;
+  }
+  .security-svg {
+    margin-bottom: 0;
+  }
+  .who-we-are-svg {
+    margin-top: -40%;
+    margin-bottom: -40%;
+  }
+  .register-logo {
+    height: 32vh;
+    width: 52vw;
+    margin-top: 0;
+    margin-left: 20vw;
+  }
+  .register-head-style {
+    margin-top: 5vh;
+  }
+  .modal-logo {
+    width: 40vw;
+    height: 20vh;
+    margin-bottom: 0;
+  }
+  .card-head {
+    font-size: 22px;
+  }
+  .card-para {
+    font-size: 18px;
+    line-height: 40px;
+  }
+  .delete-modal-yes {
+    margin-left: 2.5vw;
+    width: 40vw;
+  }
+  .delete-modal-no {
+    width: 40vw;
+    margin-left: 2vw;
+  }
+  .blog-background {
+    height: 100%;
+  }
+  .blog-image {
+    height: 40vh;
+  }
+  .contact-email {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 380.5px) and (max-width: 430px) {
   .register-background {
     height: 120vh;
   }
@@ -545,7 +771,7 @@
     width: 80vw !important;
     margin-left: 5% !important;
   }
-  .blog-text-modal{
+  .blog-text-modal {
     width: 80vw !important;
     margin-left: 5% !important;
   }
@@ -556,6 +782,9 @@
     margin-left: 5% !important;
   }
   .contact-us-button {
+    margin-left: 26%;
+  }
+  .contact-us-button-initial {
     margin-left: 26%;
   }
   .update-blog-button {
@@ -636,10 +865,10 @@
   .blog-background {
     height: 100%;
   }
-  .blog-image{
+  .blog-image {
     height: 40vh;
   }
-  .contact-email{
+  .contact-email {
     font-size: 15px;
   }
 }
@@ -736,7 +965,7 @@
   .modal-field {
     width: 45vw !important;
   }
-  .blog-text-modal{
+  .blog-text-modal {
     width: 45vw !important;
   }
   .modal-field-two {
@@ -785,7 +1014,7 @@
     line-height: 25px;
   }
   .card-style {
-    height: 128vh;
+    height: 140vh;
     width: 25vw !important;
   }
   .delete-modal-yes {
@@ -797,7 +1026,7 @@
   .name-head {
     font-size: 17px;
   }
-  .contact-email{
+  .contact-email {
     font-size: 15px;
   }
 }
@@ -816,8 +1045,125 @@
   .blog-background {
     height: 100vh;
   }
-  .blog-image{
+  .blog-image {
     height: 40vh;
+  }
+}
+@media screen and (width: 800px) {
+  .card-style {
+    height: 120vh;
+    width: 29vw !important;
+  }
+}
+@media screen and (width: 760px) {
+  .home-hero {
+    height: auto;
+  }
+  .home-heading {
+    margin-left: 6%;
+  }
+  .home-para {
+    margin-left: 6%;
+  }
+  .home-para-two {
+    margin-left: 6%;
+  }
+  .get-started {
+    margin-left: 6%;
+  }
+  .card-style {
+    height: 140vh;
+    width: 52vw !important;
+    margin-left: 9vw;
+  }
+  .card-para {
+    font-size: 16px;
+    line-height: 35px;
+  }
+  .expertise-svg {
+    margin-left: 9vw;
+    margin-top: 0vh;
+  }
+  .security-svg {
+    margin-left: 9vw;
+    margin-top: 0vh;
+  }
+  .security-para {
+    margin-bottom: 25vh;
+    margin-top: 0;
+  }
+  .footer-logo {
+    margin-left: 28%;
+  }
+  .contact-logo {
+    margin-bottom: 0 !important;
+    margin-left: 25%;
+  }
+  .contact-field {
+    margin-top: 10% !important;
+    margin-left: 18% !important;
+  }
+  .contact-field-two {
+    margin-left: 18% !important;
+  }
+  .contact-checkbox {
+    margin-left: 15% !important;
+  }
+  .blog-text-two {
+    margin-left: 18% !important;
+  }
+  .contact-para {
+    margin-left: 18% !important;
+  }
+  .contact-us-button-initial {
+    margin-left: 18% !important;
+  }
+  .footer-field {
+    width: 500px !important;
+    margin-left: 5% !important;
+  }
+  .footer-heading-base {
+    margin-left: 35% !important;
+  }
+  .about-us-head {
+    margin-bottom: 0;
+    margin-top: 15%;
+    margin-left: 12%;
+  }
+  .experienced-svg {
+    margin-left: 17%;
+  }
+  .our-team-image {
+    width: 100%;
+    height: 80vh;
+  }
+  .who-we-are-svg {
+    margin: 8% 0;
+  }
+  .register-background {
+    height: 100%;
+  }
+  .register-logo {
+    margin-left: 20%;
+    height: 200px;
+  }
+  .rounded-button {
+    margin-bottom: 10% !important;
+  }
+  .rounded-button-outlined {
+    margin-bottom: 10% !important;
+  }
+  .modal-logo {
+    height: 50vh;
+  }
+  .modal-field {
+    margin-top: 15% !important;
+  }
+  .modal-text-field {
+    margin-left: 2.5% !important;
+  }
+  .modal-text-checkbox {
+    margin-left: 0% !important;
   }
 }
 @media screen and (min-width: 926.5px) and (max-width: 1100px) {
@@ -877,7 +1223,7 @@
   .modal-field {
     width: 40vw !important;
   }
-  .blog-text-modal{
+  .blog-text-modal {
     width: 40vw !important;
   }
   .modal-field-two {
@@ -922,7 +1268,7 @@
   .blog-background {
     height: 100%;
   }
-  .contact-email{
+  .contact-email {
     font-size: 15px;
   }
 }
@@ -965,7 +1311,7 @@
   .modal-field {
     width: 418px !important;
   }
-  .blog-text-modal{
+  .blog-text-modal {
     width: 418px !important;
   }
   .contact-field {

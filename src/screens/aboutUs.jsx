@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Navbar from "../components/navbar";
-import { Container, Row, Col, Image, Modal } from "react-bootstrap";
+import { Container, Row, Col, Image,  } from "react-bootstrap";
 import Footer from "../components/footer";
 // import hero from "../assets/images/rectangle-292@2x.png";
 // import image6 from "../assets/images/rectangle-35@2x.png";
@@ -11,18 +11,89 @@ import Footer from "../components/footer";
 // import image5 from "../assets/images/rectangle-34@2x.png";
 import ButtonComponent from "../components/button";
 import MyVerticallyCenteredModal from "../components/contactModal";
+import { getBreadcrumbSchema,  getContactPointSchema, getOrganizationSchema, getTeamMembersSchema } from "../actions/schemas";
+import { Helmet } from "react-helmet";
 // import logo_2 from "../assets/images/logo-2.png";
 
 
+const teamMembers = [
+  {
+    name: "Ali Zain",
+    jobTitle: "Cyber Security Expert, Penetration Tester",
+    image: "https://120mybucket.s3.amazonaws.com/images/Rectangle+32.png",
+    description: "Cyber Security Expert, Penetration Tester, OSEP and OSCP Certified"
+  },
+  {
+    name: "Muhammad Aamir",
+    jobTitle: "Full-Stack Engineer, UX/UI Designer, DevOps Engineer",
+    image: "https://120mybucket.s3.amazonaws.com/images/Rectangle+30.png",
+    description: "Full-Stack Engineer, UX/UI Designer, DevOps Engineer"
+  }
+];
+
 const AboutUs = () => {
   const [modalShow, setModalShow] = useState(false);
+  // Define the data for each schema
+  const teamMembersList =getTeamMembersSchema(teamMembers)
+  const schemaData =  useMemo(() => [
+    {
+      type: 'application/ld+json',
+      data: getOrganizationSchema(),
+    },
+    {
+      type: 'application/ld+json',
+      data: getBreadcrumbSchema(),
+    },
+    {
+      type: 'application/ld+json',
+      data: teamMembersList,
+    },
+    {
+      type: 'application/ld+json',
+      data: getContactPointSchema(),
+    },
+  ], []);
+  useEffect(() => {
+    // Remove existing schema scripts
+  const existingSchemaScripts = document.querySelectorAll('script[data-schema]');
+  existingSchemaScripts.forEach((script) => script.remove());
+
+    schemaData.forEach((schema) => {
+      const script = document.createElement('script');
+      script.type = schema.type;
+      script.text = JSON.stringify(schema.data);
+      document.head.appendChild(script);
+    });
+  }, [schemaData]);
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>About US - Cyber Sec Global</title>
+        <meta name="description" content="Learn about our advanced security solutions. Benefit from our internal network pentest, online external penetration testing, vulnerability security scanner, and cyber security scanning services." />
+        <meta name="keywords" content="Cybersecurity services,Cloud computing security, External penetration testing, Internal penetration testing, Web app penetration testing, Vulnerability scanning, Wireless penetration testing, Social engineering awareness, Cybersecurity expertise, Data security" />
+        <meta property="og:title" content="About US - Cyber Sec Global" />
+        <meta property="og:description" content="Learn about our advanced security solutions. Benefit from our internal network pentest, online external penetration testing, vulnerability security scanner, and cyber security scanning services." />
+        <meta property="og:url" content="https://cybersecglobal.net/about-us" />
+        <meta property="og:image" content="https://120mybucket.s3.amazonaws.com/images/logobutton%403x.png" />
+        <meta name="twitter:card" content="Learn about our advanced security solutions. Benefit from our internal network pentest, online external penetration testing, vulnerability security scanner, and cyber security scanning services." />
+        <meta name="twitter:title" content="About US - Cyber Sec Global" />
+        <meta name="twitter:description" content="Learn about our advanced security solutions. Benefit from our internal network pentest, online external penetration testing, vulnerability security scanner, and cyber security scanning services." />
+        <meta name="twitter:image" content="https://120mybucket.s3.amazonaws.com/images/logobutton%403x.png" />
+
+
+        
+        
+        
+       
+      </Helmet>
+
       <Navbar />
       <div>
         {/* <Image className="about-us-hero" src={hero} /> */}
         <Image
+        alt="about us team - Cyber-Sec Global LLC"
           className="about-us-hero"
           src={
             "https://120mybucket.s3.amazonaws.com/images/rectangle-292%402x.png"
@@ -619,6 +690,8 @@ const AboutUs = () => {
             <Col md={6}>
               {/* <Image src={cyber} className="our-team-image" /> */}
               <Image
+              alt="Ali Zain (Cyber Security Expert, Penetration Tester, OSEP and OSCP Certified) - Cyber-Sec Global LLC"
+
                 src={
                   "https://120mybucket.s3.amazonaws.com/images/Rectangle+32.png"
                 }
@@ -632,6 +705,7 @@ const AboutUs = () => {
             <Col md={6}>
               {/* <Image src={dev} className="our-team-image" /> */}
               <Image
+              alt="Muhammad Aamir (Full-Stack Engineer, UX/UI Designer, DevOps Engineer) - Cyber-Sec Global LLC"
                 src={
                   "https://120mybucket.s3.amazonaws.com/images/Rectangle+30.png"
                 }
